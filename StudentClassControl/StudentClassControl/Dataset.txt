@@ -1,0 +1,60 @@
+﻿1. 第一行第一列的值
+
+      DataSet ds=new DataSet();
+      ds.Tables[0].Rows[0][0].ToString();
+
+
+
+
+2.第一行对应列的字段名 
+ds.Tables[0].Rows[0]["字段名"].ToString();
+  dbset.tables(0).rows(0).item("第一列的列名") 
+
+3. 行、列总数
+  DataSet_x.Tables[ "TableName "].Rows.Count 
+  DataSet_y.Tables[ "TableName "].Columns.Count 
+
+
+
+
+4. 取某一列的值
+
+   dataset.Tables["PersonInfo"].Rows[0]["age"].ToString();
+
+5.向DataSet中插入新的一列
+
+   DataSet ds = new DataSet();
+   ds.Table[0].Columns.Add("字段名"，"字段类型");
+
+
+
+6. 向DataSet中添加一行记录    dataset ds=new dataset(); 
+   DataRow dr = ds.Tables[0].NewRow();
+   dr["Finishdate"] = finishdate;
+   dr["Operator"] =Operator;
+   dr["disp"] =disp;
+   ds.Tables[0].Rows.Add(dr);
+
+
+
+
+1. 取DataTable中的第一行第一列
+
+    dt.Rows[0][0].Tostirng()
+
+
+
+3. 行、列总数
+  dt.Rows.Count 
+
+
+
+  dt.Columns.Count 
+
+
+
+
+4. 取某一列的值
+
+
+   dt.Rows[0]["age"].ToString();

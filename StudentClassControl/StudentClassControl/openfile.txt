@@ -1,0 +1,20 @@
+﻿下面的示例演示如何创建OpenFileDialog，其中包含默认的文件名和扩展名类型。
+
+C#
+
+复制
+// Configure open file dialog box
+Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+dlg.FileName = "Document"; // Default file name
+dlg.DefaultExt = ".txt"; // Default file extension
+dlg.Filter = "Text documents (.txt)|*.txt"; // Filter files by extension
+
+// Show open file dialog box
+Nullable<bool> result = dlg.ShowDialog();
+
+// Process open file dialog box results
+if (result == true)
+{
+    // Open document
+    string filename = dlg.FileName;
+}
