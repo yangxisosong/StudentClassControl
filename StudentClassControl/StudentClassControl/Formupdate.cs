@@ -16,5 +16,16 @@ namespace StudentClassControl
         {
             InitializeComponent();
         }
+
+        private void Formupdate_Load(object sender, EventArgs e)
+        {
+            textBox1.Text = FormControl.username;
+            textBox2.Text = "";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //修改密码
+        }
     }
 }
