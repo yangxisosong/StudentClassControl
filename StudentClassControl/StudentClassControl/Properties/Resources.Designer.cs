@@ -69,5 +69,15 @@ namespace StudentClassControl.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Geometry_Dash_GJ_按钮_02_HD_GJ_b_爱给网_aigei_com {
+            get {
+                object obj = ResourceManager.GetObject("Geometry Dash-GJ 按钮_02-HD(GJ_b_爱给网_aigei_com", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

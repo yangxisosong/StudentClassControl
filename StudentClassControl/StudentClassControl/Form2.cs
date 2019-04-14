@@ -92,5 +92,21 @@ namespace StudentClassControl
             
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //获取用户名
+            string username = maskedTextBox1.Text;
+            if (username == "")
+            {
+                //MessageBox.Show("11");
+                FormControl.Changeform(4, this);
+            }
+            else
+            {
+                FormControl.username = username;
+                FormControl.Changeform(4, this);
+            }
+        }
     }
 }

@@ -9,6 +9,8 @@ namespace StudentClassControl
 {
     class FormControl
     {
+        public static string username = null;
+        public static string passward = null;
         public static void Changeform(int key,formload fl)
         {
             switch (key)
@@ -33,6 +35,11 @@ namespace StudentClassControl
                     fl.Hide();
                     formselect.ShowDialog();
                     Application.ExitThread();
+                    break;
+                case 4:
+                    //修改密码
+                    Formupdate formupdate = new Formupdate();
+                    formupdate.ShowDialog();
                     break;
             }
         }

@@ -116,6 +116,12 @@
     <Compile Include="Formselect.Designer.cs">
       <DependentUpon>Formselect.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formupdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formupdate.Designer.cs">
+      <DependentUpon>Formupdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="MysqlControl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formselect.resx">
       <DependentUpon>Formselect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formupdate.resx">
+      <DependentUpon>Formupdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -170,6 +179,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Geometry Dash-GJ 按钮_02-HD%28GJ_b_爱给网_aigei_com.png" />
     <None Include="Connected Services\ServiceReference1\Service1.disco" />
     <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
