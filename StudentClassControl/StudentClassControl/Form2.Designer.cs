@@ -64,6 +64,7 @@
             this.maskedTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.maskedTextBox2, "maskedTextBox2");
             this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.PasswordChar = '*';
             // 
             // button2
             // 

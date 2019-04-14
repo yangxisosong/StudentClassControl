@@ -115,10 +115,12 @@ namespace StudentClassControl
             }
             catch
             {
+                //出现异常 密码不对
                 return -1;
             }
             //MessageBox.Show(st + "**" + power);
             conn.Close();
+            //判断用户级别 1学生 2老师 3管理员
             if (st == passward)
             {
                 return power;
@@ -129,21 +131,33 @@ namespace StudentClassControl
             }
         }
 
-        public static void changepassward()
+        public static int changepassward(string pass,string id)
         {
             string conStr = "server=localhost;port=3306; database=yxs;username=root;password=123456;";
             MySqlConnection conn = new MySqlConnection(conStr);
             try
             {
                 conn.Open();
-                //成功：
+                //成功
             }
             catch (MySqlException e)
             {
                 MessageBox.Show(e.ToString());
             }
-            string updateu = "update table1 set field1=value1 where id=123";
-                
+            string updateu = "update userin set password="+pass+" where id='" + id + "'";
+            MySqlCommand sqlCommand = new MySqlCommand(updateu,conn);
+            int iet=sqlCommand.ExecuteNonQuery();
+            conn.Close();
+            if (iet > 0)
+            {
+                //修改成功
+                return 1;
+            }
+            else
+            {
+                //修改失败
+                return -1;
+            }
         }
         public static string Insertstr(string table,string key1,string key2,string value1,string value2 )
         {

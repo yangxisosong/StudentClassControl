@@ -216,6 +216,9 @@
   <data name="maskedTextBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>549, 173</value>
   </data>
+  <data name="maskedTextBox2.PromptChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>●</value>
+  </data>
   <data name="maskedTextBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 34</value>
   </data>

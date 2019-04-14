@@ -73,15 +73,16 @@
             this.textBox1.Location = new System.Drawing.Point(193, 46);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(217, 30);
-            this.textBox1.TabIndex = 3;
+            this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox2.Location = new System.Drawing.Point(193, 192);
             this.textBox2.Name = "textBox2";
+            this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(217, 30);
-            this.textBox2.TabIndex = 4;
+            this.textBox2.TabIndex = 2;
             // 
             // textBox3
             // 
@@ -89,7 +90,7 @@
             this.textBox3.Location = new System.Drawing.Point(193, 115);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(217, 30);
-            this.textBox3.TabIndex = 5;
+            this.textBox3.TabIndex = 1;
             // 
             // button1
             // 
@@ -104,7 +105,7 @@
             this.button1.Location = new System.Drawing.Point(193, 301);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(118, 39);
-            this.button1.TabIndex = 6;
+            this.button1.TabIndex = 3;
             this.button1.Text = "修改";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
