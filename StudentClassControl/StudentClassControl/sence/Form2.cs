@@ -44,7 +44,7 @@ namespace StudentClassControl
                 if (power>0)
                 {
 
-                    MessageBox.Show("登录成功"+power);
+                    //MessageBox.Show("登录成功"+power);
 
                     //切换视窗
                     switch (power)
@@ -104,7 +104,7 @@ namespace StudentClassControl
             }
             else
             {
-                FormControl.username = username;
+                FormControl.person.id= username;
                 FormControl.Changeform(4, this);
             }
         }

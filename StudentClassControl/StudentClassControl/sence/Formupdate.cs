@@ -19,7 +19,7 @@ namespace StudentClassControl
 
         private void Formupdate_Load(object sender, EventArgs e)
         {
-            textBox1.Text = FormControl.username;
+            textBox1.Text = FormControl.person.id;
             textBox2.Text = "";
         }
 

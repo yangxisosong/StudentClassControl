@@ -7,10 +7,16 @@ using System.Windows.Forms;
 
 namespace StudentClassControl
 {
+    struct Person
+    {
+        public string id;
+        public string passward;
+        public string lever;
+        public string name;
+    }
     class FormControl
     {
-        public static string username = null;
-        public static string passward = null;
+        public static Person person = new Person();
         public static void Changeform(int key,formload fl)
         {
             switch (key)

@@ -47,3 +47,6 @@ D:\work\git\StudentClassControl\StudentClassControl\StudentClassControl\obj\Debu
 D:\work\git\StudentClassControl\StudentClassControl\StudentClassControl\obj\Debug\StudentClassControl.exe
 D:\work\git\StudentClassControl\StudentClassControl\StudentClassControl\obj\Debug\StudentClassControl.pdb
 D:\work\git\StudentClassControl\StudentClassControl\StudentClassControl\obj\Debug\StudentClassControl.Formupdate.resources
+D:\work\git\StudentClassControl\StudentClassControl\StudentClassControl\obj\Debug\StudentClassControl.student_1.resources
+D:\work\git\StudentClassControl\StudentClassControl\StudentClassControl\obj\Debug\StudentClassControl.student_2.resources
+D:\work\git\StudentClassControl\StudentClassControl\StudentClassControl\obj\Debug\StudentClassControl.student_3.resources

@@ -66,25 +66,25 @@ namespace StudentClassControl
 
         private Bitmap Drawimage()
         {
-            MessageBox.Show(this.Name+this.Size+this .ClientSize);
+            MessageBox.Show(this.Name + this.Size + this.ClientSize);
             Bitmap bm = new Bitmap(this.Width, this.Height);
             Rectangle rc = SystemInformation.WorkingArea;
             using (Graphics g = Graphics.FromImage(bm))
             {
-               // this.Width = (int)(this.Width*1.25f);
+                // this.Width = (int)(this.Width*1.25f);
                 //this.Height = (int)(this.Height*1.25f);
                 /*int wi = (int)(this.Left *1.3f);
                 int hi = (int)(this.Top *1.25f);
                 Size size = this.Size;
                 size.Width = (int)(size.Width * 2f);
                 size.Height = (int)(size.Height * 2f);*/
-                g.CopyFromScreen(rc.X,rc.Y, 0, 0, rc.Size, CopyPixelOperation.SourceCopy);
+                g.CopyFromScreen(rc.X, rc.Y, 0, 0, rc.Size, CopyPixelOperation.SourceCopy);
             }
             return bm;
         }
 
 
-        
+
 
 
         private void Saveimage(Bitmap bp)
@@ -106,10 +106,10 @@ namespace StudentClassControl
             // s.Width = Convert.ToInt32(s.Width * 1.25f);//s.Width * 1.2f;
             //s.Height = Convert.ToInt32(s.Height * 1.25f);
             Rectangle rc = SystemInformation.VirtualScreen;
-            memoryImage = new Bitmap(s.Width,s.Height, myGraphics);
+            memoryImage = new Bitmap(s.Width, s.Height, myGraphics);
             Graphics memoryGraphics = Graphics.FromImage(memoryImage);
 
-            memoryGraphics.CopyFromScreen(rc.X,rc.Y, 0, 0, rc.Size,CopyPixelOperation.SourceCopy);
+            memoryGraphics.CopyFromScreen(rc.X, rc.Y, 0, 0, rc.Size, CopyPixelOperation.SourceCopy);
         }
 
         private void PrintDocument1_PrintPage(System.Object sender,
@@ -125,16 +125,16 @@ namespace StudentClassControl
             g.CompositingQuality = CompositingQuality.HighQuality;//质量设为最高
             int newleft = (int)(this.Left * 1.25f);
             int newtop = (int)(this.Top * 1.25f);
-            g.CopyFromScreen(newleft, newtop, 0, 0, new Size((int)(this.Width*1.25f), (int)(this.Height*1.25f)), CopyPixelOperation.SourceCopy);//保存整个窗体为图片
-                                                                                           //g.CopyFromScreen(panel游戏区 .PointToScreen(Point.Empty), Point.Empty, panel游戏区.Size);//只保存某个控件(这里是panel游戏区)
-                                                                                           //bit.Save("weiboTemp.png");//默认保存格式为PNG，保存成jpg格式质量不是很好
+            g.CopyFromScreen(newleft, newtop, 0, 0, new Size((int)(this.Width * 1.25f), (int)(this.Height * 1.25f)), CopyPixelOperation.SourceCopy);//保存整个窗体为图片
+                                                                                                                                                    //g.CopyFromScreen(panel游戏区 .PointToScreen(Point.Empty), Point.Empty, panel游戏区.Size);//只保存某个控件(这里是panel游戏区)
+                                                                                                                                                    //bit.Save("weiboTemp.png");//默认保存格式为PNG，保存成jpg格式质量不是很好
             bit.Save("D:\\test\\123.jpg", ImageFormat.Jpeg);
             //Saveimage(Drawimage());
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            MysqlControl.Loadmysql(); 
+            MysqlControl.Loadmysql();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -144,6 +144,38 @@ namespace StudentClassControl
             g.DrawLine(p, 10, 10, 100, 100);//在画板上画直线,起始坐标为(10,10),终点坐标为(100,100)
             g.DrawRectangle(p, 10, 10, 100, 100);//在画板上画矩形,起始坐标为(10,10),宽为,高为
             g.DrawEllipse(p, 10, 10, 100, 100);//在画板上画椭圆,起始坐标为(10,10),外接矩形的宽为,高为100
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ////新建一个修改密码的窗体
+            student_1 st1 = new student_1();
+            ////将窗体的TopLevel属性设为false，即窗体显示不是顶级窗口
+            st1.TopLevel = false;
+            ////清空panel控件的内容
+            this.panel2.Controls.Clear();
+            ////向panel控件中添加窗体
+            this.panel2.Controls.Add(st1);
+            ////panel控件内显示窗体
+            st1.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            student_2 st2 = new student_2();
+            st2.TopLevel = false;
+            this.panel2.Controls.Clear();
+            this.panel2.Controls.Add(st2);
+            st2.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            student_3 st3 = new student_3();
+            st3.TopLevel = false;
+            this.panel2.Controls.Clear();
+            this.panel2.Controls.Add(st3);
+            st3.Show();
         }
     }
 }

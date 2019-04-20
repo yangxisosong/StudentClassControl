@@ -84,63 +84,81 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Class2.cs" />
+    <Compile Include="Clssfile\Class1.cs" />
+    <Compile Include="Clssfile\Class2.cs" />
     <Compile Include="Connected Services\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="sence\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="sence\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="sence\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
+    <Compile Include="sence\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="sence\Form3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
+    <Compile Include="sence\Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormControl.cs" />
-    <Compile Include="Formselect.cs">
+    <Compile Include="Clssfile\FormControl.cs" />
+    <Compile Include="sence\Formselect.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formselect.Designer.cs">
+    <Compile Include="sence\Formselect.Designer.cs">
       <DependentUpon>Formselect.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formupdate.cs">
+    <Compile Include="sence\Formupdate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formupdate.Designer.cs">
+    <Compile Include="sence\Formupdate.Designer.cs">
       <DependentUpon>Formupdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="MysqlControl.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Clssfile\MysqlControl.cs" />
+    <Compile Include="Clssfile\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <Compile Include="student_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="student_1.Designer.cs">
+      <DependentUpon>student_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="student_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="student_2.Designer.cs">
+      <DependentUpon>student_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="student_3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="student_3.Designer.cs">
+      <DependentUpon>student_3.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="sence\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
+    <EmbeddedResource Include="sence\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.zh-Hans.resx">
+    <EmbeddedResource Include="sence\Form2.zh-Hans.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
+    <EmbeddedResource Include="sence\Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formselect.resx">
+    <EmbeddedResource Include="sence\Formselect.resx">
       <DependentUpon>Formselect.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formupdate.resx">
+    <EmbeddedResource Include="sence\Formupdate.resx">
       <DependentUpon>Formupdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -153,6 +171,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="student_1.resx">
+      <DependentUpon>student_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="student_2.resx">
+      <DependentUpon>student_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="student_3.resx">
+      <DependentUpon>student_3.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Connected Services\ServiceReference1\Service1.wsdl" />
     <None Include="Connected Services\ServiceReference1\Service1.xsd">
       <SubType>Designer</SubType>
