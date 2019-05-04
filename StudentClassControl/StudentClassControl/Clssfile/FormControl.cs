@@ -37,9 +37,9 @@ namespace StudentClassControl
                     break;
                 case 3:
                     //管理员
-                    Formselect formselect = new Formselect();
+                    admin_1 admin_1 = new admin_1();
                     fl.Hide();
-                    formselect.ShowDialog();
+                    admin_1.ShowDialog();
                     Application.ExitThread();
                     break;
                 case 4:

@@ -43,7 +43,7 @@ namespace StudentClassControl
                     DialogResult result = MessageBox.Show("确定将密码更改为 ：" + passnew,"修改", MessageBoxButtons.OKCancel);
                     if (result == DialogResult.OK)
                     {
-                        int ch = MysqlControl.changepassward(passnew, username);
+                        int ch = MysqlControl.Changepassward(passnew, username);
                         if (ch > 0)
                         {
                             MessageBox.Show("修改成功");

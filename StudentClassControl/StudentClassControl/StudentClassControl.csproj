@@ -84,6 +84,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="sence\admin_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sence\admin_1.Designer.cs">
+      <DependentUpon>admin_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clssfile\Class1.cs" />
     <Compile Include="Clssfile\Class2.cs" />
     <Compile Include="Connected Services\ServiceReference1\Reference.cs">
@@ -125,24 +139,27 @@
     <Compile Include="Clssfile\MysqlControl.cs" />
     <Compile Include="Clssfile\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="student_1.cs">
+    <Compile Include="sence\student_1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="student_1.Designer.cs">
+    <Compile Include="sence\student_1.Designer.cs">
       <DependentUpon>student_1.cs</DependentUpon>
     </Compile>
-    <Compile Include="student_2.cs">
+    <Compile Include="sence\student_2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="student_2.Designer.cs">
+    <Compile Include="sence\student_2.Designer.cs">
       <DependentUpon>student_2.cs</DependentUpon>
     </Compile>
-    <Compile Include="student_3.cs">
+    <Compile Include="sence\student_3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="student_3.Designer.cs">
+    <Compile Include="sence\student_3.Designer.cs">
       <DependentUpon>student_3.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="sence\admin_1.resx">
+      <DependentUpon>admin_1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sence\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,13 +188,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="student_1.resx">
+    <EmbeddedResource Include="sence\student_1.resx">
       <DependentUpon>student_1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="student_2.resx">
+    <EmbeddedResource Include="sence\student_2.resx">
       <DependentUpon>student_2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="student_3.resx">
+    <EmbeddedResource Include="sence\student_3.resx">
       <DependentUpon>student_3.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Connected Services\ServiceReference1\Service1.wsdl" />
@@ -189,6 +206,17 @@
     </None>
     <None Include="Connected Services\ServiceReference1\Service12.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />

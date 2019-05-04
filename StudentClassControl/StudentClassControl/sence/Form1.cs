@@ -20,6 +20,8 @@ namespace StudentClassControl
             //printButton.Click += new EventHandler(printButton_Click);
             //printDocument1.PrintPage += new PrintPageEventHandler(PrintDocument1_PrintPage);
             //this.Controls.Add(printButton);
+            namenum.Text = FormControl.person.id;
+            name.Text = FormControl.person.name;
         }
         //void printButton_Click(object sender, EventArgs e)
         //{

@@ -15,8 +15,23 @@ namespace StudentClassControl
         public Form3()
         {
             InitializeComponent();
+            namenum.Text = FormControl.person.id;
+            name.Text = FormControl.person.name;
         }
 
-       
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            namenum.Text = FormControl.person.id;
+        }
+
+        private void namenum_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

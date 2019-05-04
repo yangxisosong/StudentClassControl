@@ -12,6 +12,8 @@ namespace StudentClassControl
 {
     class MysqlControl
     {
+        MySqlConnection conna = new MySqlConnection("server=localhost;port=3306; database=yxs;username=root;password=123456;");
+        //测试使用
         public static void Loadmysql()
         {
             //服务器、端口号、数据库、用户名、密码
@@ -32,6 +34,7 @@ namespace StudentClassControl
             }
             //conn.Close();
         }
+        //连接本地
         public static void Loadmysqllocal()
         {
             //服务器、端口号、数据库、用户名、密码
@@ -53,6 +56,7 @@ namespace StudentClassControl
             }
             conn.Close();
         }
+        //登录验证（弃用）
         public static DataSet Selectvalue(string id,string passward,string num)
         {
             DataSet ds = new DataSet();
@@ -130,8 +134,8 @@ namespace StudentClassControl
                 return 0;
             }
         }
-
-        public static int changepassward(string pass,string id)
+        //修改密码
+        public static int Changepassward(string pass,string id)
         {
             string conStr = "server=localhost;port=3306; database=yxs;username=root;password=123456;";
             MySqlConnection conn = new MySqlConnection(conStr);
@@ -158,6 +162,69 @@ namespace StudentClassControl
                 //修改失败
                 return -1;
             }
+        }
+        //查询登录数据
+        public  DataSet Selectin(string id,string table)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                conna.Open();
+            }
+            catch(MySqlException e)
+            {
+
+            }
+            string cmdid = "Select * from "+table+" where id='" + id + "'";
+            MySqlCommand sqlCmd = new MySqlCommand(cmdid, conna);
+            MySqlDataAdapter sda = new MySqlDataAdapter(sqlCmd);
+            sda.Fill(ds, table);
+            conna.Close();
+            return ds;
+        }
+        //查询学院专业
+        public DataSet Selectschool(string table)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                conna.Open();
+            }
+            catch (MySqlException e)
+            {
+
+            }
+            string cmdid = "Select * from " + table;
+            MySqlCommand sqlCmd = new MySqlCommand(cmdid, conna);
+            MySqlDataAdapter sda = new MySqlDataAdapter(sqlCmd);
+            sda.Fill(ds, table);
+            conna.Close();
+            return ds;
+        }
+        //插入信息
+        public int Insert(string table,string id,string name,string sex,string stuclass,string discipline,string college,string intime)
+        {
+
+            DataSet ds = new DataSet();
+            try
+            {
+                conna.Open();
+            }
+            catch (MySqlException e)
+            {
+
+            }
+            string cmdid = "INSERT INTO "+table+" VALUES ('"+id+"','"+name+"','"+sex+"',"+stuclass+",'"+discipline+"','"+college+"',"+intime+");";
+            MySqlCommand sqlCmd = new MySqlCommand(cmdid, conna);
+            MySqlDataAdapter sda = new MySqlDataAdapter(sqlCmd);
+            int iet = sqlCmd.ExecuteNonQuery();
+            conna.Close();
+            if (iet == 1)
+            {
+
+                return 1;
+            }
+            return 0;
         }
         public static string Insertstr(string table,string key1,string key2,string value1,string value2 )
         {
