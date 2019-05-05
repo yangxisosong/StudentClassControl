@@ -389,3 +389,64 @@ return true;
 }
 }
 } 
+
+
+ try
+            {
+                //需要添加 Microsoft.Office.Interop.Excel引用 
+                Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+                if (app == null)//服务器上缺少Excel组件，需要安装Office软件
+                {
+                    return;
+                }
+                app.Visible = false;
+                app.UserControl = true;
+                string strTempPath = System.Windows.Forms.Application.StartupPath + "\\Template\\Form.xls";
+                Microsoft.Office.Interop.Excel.Workbooks workbooks = app.Workbooks;
+                Microsoft.Office.Interop.Excel._Workbook workbook = workbooks.Add(strTempPath); //加载模板
+                Microsoft.Office.Interop.Excel.Sheets sheets = workbook.Sheets;
+                Microsoft.Office.Interop.Excel._Worksheet worksheet = (Microsoft.Office.Interop.Excel._Worksheet)sheets.get_Item(1); //第一个工作薄。
+                if (worksheet == null)//工作薄中没有工作表
+                {
+                    return;
+                }
+
+                //2、写入数据，Excel索引从1开始
+                worksheet.Cells[1, 1] = "学号";
+                worksheet.Cells[1, 2] = "姓名";
+                worksheet.Cells[1, 3] = "性别";
+                worksheet.Cells[1, 4] = "班级";
+                worksheet.Cells[1, 5] = "专业";
+                worksheet.Cells[1, 6] = "学院";
+                worksheet.Cells[1, 7] = "入学年份";
+                //调整Excel的样式。
+                //Microsoft.Office.Interop.Excel.Range rg = worksheet.Cells.get_Range("A3", worksheet.Cells[rowCount + 2, 32]);
+                //rg.Borders.LineStyle = 1; //单元格加边框
+                //worksheet.Columns.AutoFit(); //自动调整列宽
+
+                //隐藏某一行
+                //选中部分单元格，把选中的单元格所在的行的Hidden属性设为true
+                //worksheet.get_Range(app.Cells[2, 1], app.Cells[2, 32]).EntireRow.Hidden = true;
+
+                //删除某一行
+                // worksheet.get_Range(app.Cells[2, 1], app.Cells[2, 32]).EntireRow.Delete(Microsoft.Office.Interop.Excel.XlDirection.xlUp);
+
+                //3、保存生成的Excel文件
+                //Missing在System.Reflection命名空间下
+                //string savePath = System.Windows.Forms.Application.StartupPath+"/Temp/T1_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xls";
+
+                //workbook.SaveAs(FileName, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Missing.Value, Missing.Value, Missing.Value, Missing.Value, Missing.Value);
+                ////workbook.SaveAs(FileName,FileFormat,Password,WriteResPassword,ReadOnlyRecommended,CreateBackup, AccessMode, ConflictResolution, AddToMru, TextCodepage, TextVisualLayout, Local) 
+                ////4、按顺序释放资源
+                //NAR(worksheet);
+                //NAR(sheets);
+                //NAR(workbook);
+                //NAR(workbooks);
+                //app.Quit();
+                //NAR(app);
+                //MessageBox.Show("保存成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("异常，异常信息为：" + ex.ToString(), "");
+            }

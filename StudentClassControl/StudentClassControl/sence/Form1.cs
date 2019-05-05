@@ -57,7 +57,6 @@ namespace StudentClassControl
                     {
                         textBox1.Text = textBox1.Text + dt.Rows[0][0].ToString();
                     }
-
                 }
             }
 

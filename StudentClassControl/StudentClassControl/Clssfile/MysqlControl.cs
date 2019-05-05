@@ -212,7 +212,7 @@ namespace StudentClassControl
             }
             catch (MySqlException e)
             {
-
+                return 0;
             }
             string cmdid = "INSERT INTO "+table+" VALUES ('"+id+"','"+name+"','"+sex+"',"+stuclass+",'"+discipline+"','"+college+"',"+intime+");";
             MySqlCommand sqlCmd = new MySqlCommand(cmdid, conna);
@@ -225,6 +225,39 @@ namespace StudentClassControl
                 return 1;
             }
             return 0;
+        }
+        //自定义插入
+        public int Myinsert(string ins)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                conna.Open();
+            }
+            catch (MySqlException e)
+            {
+                return 0;
+            }
+            string cmdid = ins;
+            try
+            {
+                MySqlCommand sqlCmd = new MySqlCommand(cmdid, conna);
+                MySqlDataAdapter sda = new MySqlDataAdapter(sqlCmd);
+                int iet = sqlCmd.ExecuteNonQuery();
+                conna.Close();
+                if (iet >= 1)
+                {
+                    return iet;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch
+            {
+                return 0;
+            }   
         }
         public static string Insertstr(string table,string key1,string key2,string value1,string value2 )
         {

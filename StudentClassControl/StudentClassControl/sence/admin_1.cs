@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -18,7 +13,7 @@ namespace StudentClassControl
         public admin_1()
         {
             InitializeComponent();
-
+            //初始化专业选择
             DataSet ds = mc.Selectschool("school_dis");
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
@@ -35,7 +30,6 @@ namespace StudentClassControl
             {
                 comboBox3.Items.Add(i);
             }
-
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -72,7 +66,7 @@ namespace StudentClassControl
             if (id != "" && name != "" && stuclass != "" && discipline != "" && college != "" && intime != "" && (radioButton1.Checked || radioButton2.Checked))
             {
                 int key = mc.Insert("student", id, name, sex, stuclass, discipline, college, intime);
-                if (key == 1)
+                if (key >= 1)
                 {
                     MessageBox.Show("信息录入成功！");
                 }
@@ -87,26 +81,117 @@ namespace StudentClassControl
             }
         }
 
+        //导出excel函数
+        private void ExportExcels(string fileName)
+        {
+            string saveFileName = "";
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.DefaultExt = "xls";
+            saveDialog.Filter = "Excel文件|*.xls";
+            saveDialog.FileName = fileName;
+            saveDialog.ShowDialog();
+            saveFileName = saveDialog.FileName;
+            if (saveFileName.IndexOf(":") < 0) return; //被点了取消
+            Excel.Application xlApp = new Excel.Application();
+            if (xlApp == null)
+            {
+                MessageBox.Show("无法创建Excel对象，可能您可能未安装Excel");
+                return;
+            }
+            Excel.Workbooks workbooks = xlApp.Workbooks;
+            Excel.Workbook workbook = workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
+            Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Worksheets[1];//取得sheet1
+                                                                                //写入标题
+
+            //worksheet.Cells[1, 0] = myDGV.Columns[i].HeaderText;
+            worksheet.Cells[1, 1] = "学号             ";
+            worksheet.Cells[1, 2] = "姓名    ";
+            worksheet.Cells[1, 3] = "性别  ";
+            worksheet.Cells[1, 4] = "班级  ";
+            worksheet.Cells[1, 5] = "专业            ";
+            worksheet.Cells[1, 6] = "学院            ";
+            worksheet.Cells[1, 7] = "入学年份    ";
+
+            ////写入数值
+            //for (int r = 0; r < myDGV.Rows.Count; r++)
+            //{
+            //    for (int i = 0; i < myDGV.ColumnCount; i++)
+            //    {
+            //        worksheet.Cells[r + 2, i + 1] = myDGV.Rows[r].Cells[i].Value;
+            //    }
+            //    System.Windows.Forms.Application.DoEvents();
+            //}
+            worksheet.Columns.EntireColumn.AutoFit();//列宽自适应
+            if (saveFileName != "")
+            {
+                try
+                {
+                    workbook.Saved = true;
+                    workbook.SaveCopyAs(saveFileName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("导出文件时出错,文件可能正被打开！\n" + ex.Message);
+                }
+            }
+            xlApp.Quit();
+            GC.Collect();//强行销毁
+            MessageBox.Show("文件： " + fileName + ".xls 保存成功", "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
         private void button2_Click(object sender, EventArgs e)
         {
-            //导出模板
-            Excel.Application excel = new Excel.Application();
-            excel.Application.Workbooks.Add(true);
-            excel.Visible = false;//是否打开该Excel文件
-       
-            //填充数据 
-            excel.Cells[1, 1] = "学号";
-            excel.Cells[1, 2] = "姓名";
-            excel.Cells[1, 3] = "性别";
-            excel.Cells[1, 4] = "班级";
-            excel.Cells[1, 5] = "专业";
-            excel.Cells[1, 6] = "学院";
-            excel.Cells[1, 7] = "入学年份";
-            excel.GetSaveAsFilename( "学生信息表");
+            ExportExcels("学生信息表");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.DataSource == null)
+            {
+                MessageBox.Show("请先导入信息");
+            }
+            else
+            {
+                //格式 [列，行] Rows代表行的集合，Columns代表列的集合。
+                string data = dataGridView1[0, 1].Value.ToString();
+                //MessageBox.Show(data + dataGridView1[1, 1].Value.ToString() + dataGridView1.Rows.Count);
+                string sqlop = "INSERT INTO student VALUES";
+                string sqled = "";
+                int len = dataGridView1.Rows.Count - 1;
+                for (int i = 1; i < len; i++)
+                {
+                    sqled = sqled + 
+                        "('"+ dataGridView1[0, i].Value.ToString() +
+                        "', '"+ dataGridView1[1, i].Value.ToString() + 
+                        "', '"+ dataGridView1[2, i].Value.ToString() + 
+                        "', "+ dataGridView1[3, i].Value.ToString() +
+                        ", '"+ dataGridView1[4, i].Value.ToString() +
+                        "', '" + dataGridView1[5, i].Value.ToString() +
+                        "', " + dataGridView1[6, i].Value.ToString()  + ")";
+                    if (i + 1 < len)
+                    {
+                        sqled = sqled + ",";
+                    }
+                    else
+                    {
+                        sqled = sqled + ";";
+                    }
+                }
+                string over = sqlop + sqled;
+                MessageBox.Show(over);
+                 //sqldata = "INSERT INTO student VALUES" +
+                 //   "('123468', '想从事', '男', 1521, '软件工程', '计算机网络', 2016)" +
+                 //   ",('123474', '想从事', '男', 1521, '软件工程', '计算机网络', 2016)" +
+                 //   ",('123482', '想从事', '男', 1521, '软件工程', '计算机网络', 2016); ";
+                int key= mc.Myinsert(sqlop+sqled);
+                if (key >= 1)
+                {
+                    MessageBox.Show("成功录入" + key+"条信息");
+                }
+                else
+                {
+                    MessageBox.Show("录入失败");
+                }
+            }
 
         }
 
@@ -115,7 +200,10 @@ namespace StudentClassControl
             Class1 cs = new Class1();
             dataGridView1.DataSource = null;
             DataSet ds = cs.GetData();
-            dataGridView1.DataSource = ds;
+            if (ds != null)
+            {
+                dataGridView1.DataSource = ds.Tables[0];
+            }
         }
     }
 }

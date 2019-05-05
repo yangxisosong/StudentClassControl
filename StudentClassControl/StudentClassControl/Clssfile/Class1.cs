@@ -52,7 +52,7 @@ namespace StudentClassControl
                     connString = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + path + ";" + ";Extended Properties=\"Excel 8.0;HDR=NO;IMEX=1\"";
 
                 else
-
+                    //connString = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + path + ";" + ";Extended Properties=\"Excel 8.0;HDR=NO;IMEX=1\"";
                     connString = "Provider=Microsoft.ACE.OLEDB.12.0;" + "Data Source=" + path + ";" + ";Extended Properties=\"Excel 12.0;HDR=NO;IMEX=1\"";
 
                 //读取文件
