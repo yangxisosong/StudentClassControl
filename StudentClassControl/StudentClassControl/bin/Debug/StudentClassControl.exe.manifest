@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StudentClassControl.exe" size="2008592">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StudentClassControl.exe" size="2032656">
       <assemblyIdentity name="StudentClassControl" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>v2uuzLa4ICrTG7NqavunbT/+OyNHYQfW8uuyKcWUvN8=</dsig:DigestValue>
+        <dsig:DigestValue>R6RxjPbuiHhkWao08+Beqf867oyhXmcq7hDFHnNl3Bw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -73,7 +73,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>AVia/zfTGi2PjY0XXOMmX6htZMDibDKIBH/eRX2Dqw4=</dsig:DigestValue>
+        <dsig:DigestValue>AIylX1JTiDW1XK1GhmcvCDnjG85lTI3xI4XPg3SQL3A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -104,13 +104,13 @@
       <dsig:DigestValue>tXdk/yCBG7rhPEhLcf65sNpGL/d+hS+nB/cJ1QgdTRI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="outputExcle.txt" size="16133">
+  <file name="outputExcle.txt" size="16295">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>UzNSP0o7gz6etb5Dk1H41KRlaZM+lvLA+hgbqlGeClU=</dsig:DigestValue>
+      <dsig:DigestValue>5rjV9B6h89U02/oGR8B1lb4AUf5I7HkWkP/OgAWk9so=</dsig:DigestValue>
     </hash>
   </file>
   <file name="StudentClassControl.exe.config" size="704">

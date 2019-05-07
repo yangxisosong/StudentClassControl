@@ -17,6 +17,8 @@ namespace StudentClassControl
     class FormControl
     {
         public static Person person = new Person();
+        public static string weaktime =null;
+        public static Dictionary<string, string> keyValues = new Dictionary<string, string>();
         public static void Changeform(int key,formload fl)
         {
             switch (key)

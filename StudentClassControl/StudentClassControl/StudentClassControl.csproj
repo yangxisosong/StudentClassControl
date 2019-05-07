@@ -84,6 +84,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Excelcon.cs" />
+    <Compile Include="sence\ExcelControl.cs" />
+    <Compile Include="Formclass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formclass.Designer.cs">
+      <DependentUpon>Formclass.cs</DependentUpon>
+    </Compile>
     <Compile Include="sence\admin_1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +157,9 @@
     <Compile Include="sence\student_3.Designer.cs">
       <DependentUpon>student_3.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Formclass.resx">
+      <DependentUpon>Formclass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sence\admin_1.resx">
       <DependentUpon>admin_1.cs</DependentUpon>
     </EmbeddedResource>
