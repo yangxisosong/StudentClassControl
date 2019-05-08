@@ -8,6 +8,7 @@ namespace StudentClassControl
 {
     public partial class admin_1 : Form
     {
+        //定义字典用于下拉列表选择
         Dictionary<string, string> Address = new Dictionary<string, string>();
         MysqlControl mc = new MysqlControl();
         Excelcon ex = new Excelcon();
@@ -41,7 +42,7 @@ namespace StudentClassControl
         {
 
         }
-        //定义字典用于下拉列表选择
+       
 
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,7 +59,7 @@ namespace StudentClassControl
                 }
             }
         }
-
+        //添加一个学生信息
         private void button1_Click(object sender, EventArgs e)
         {
             string id = stuid.Text;
@@ -74,6 +75,12 @@ namespace StudentClassControl
                 if (key >= 1)
                 {
                     MessageBox.Show("信息录入成功！");
+                    string sqlin = "INSERT INTO userin VALUES('"+id+"', '123456', 1); ";
+                    int kk=mc.Myinsert(sqlin);
+                    //if(kk>=1)
+                    //{
+                    //    MessageBox.Show("ok");
+                    //}
                 }
                 else
                 {
@@ -87,12 +94,11 @@ namespace StudentClassControl
         }
 
         //导出excel函数
-       
         private void button2_Click(object sender, EventArgs e)
         {
             ex.ExportExcel_stu("学生信息表");
         }
-
+        //excel添加学生
         private void button4_Click(object sender, EventArgs e)
         {
             if (dataGridView1.DataSource == null)
@@ -125,9 +131,11 @@ namespace StudentClassControl
                     {
                         sqled = sqled + ";";
                     }
+                    string sql = "INSERT INTO userin VALUES('" + dataGridView1[0, i].Value.ToString() + "', '123456', 1); ";
+                    int kk = mc.Myinsert(sql);
                 }
-                string over = sqlop + sqled;
-                MessageBox.Show(over);
+                //string over = sqlop + sqled;
+                //MessageBox.Show(over);
                  //sqldata = "INSERT INTO student VALUES" +
                  //   "('123468', '想从事', '男', 1521, '软件工程', '计算机网络', 2016)" +
                  //   ",('123474', '想从事', '男', 1521, '软件工程', '计算机网络', 2016)" +
@@ -144,7 +152,7 @@ namespace StudentClassControl
             }
 
         }
-
+        //导入excel学生表
         private void button3_Click(object sender, EventArgs e)
         {
             Class1 cs = new Class1();
@@ -155,7 +163,7 @@ namespace StudentClassControl
                 dataGridView1.DataSource = ds.Tables[0];
             }
         }
-
+        //添加一个教师信息
         private void button5_Click(object sender, EventArgs e)
         {
             string name = textBox2.Text;
@@ -163,26 +171,34 @@ namespace StudentClassControl
             string sex = radioButton3.Checked ? "男" : "女";
             string college = comboBox4.Text;
 
-            string sqlin = "INSERT INTO teacher VALUES " +
-                "('"+classid+"','"+name+"','"+sex+"','"+college+"')";
-            int key = mc.Myinsert(sqlin);
-            if (key >= 1)
+            if (name != "" && classid != "" && sex != "" && college != "")
             {
-                MessageBox.Show("添加成功！");
+                string sqlin = "INSERT INTO teacher VALUES " +
+              "('" + classid + "','" + name + "','" + sex + "','" + college + "')";
+                int key = mc.Myinsert(sqlin);
+                if (key >= 1)
+                {
+                    MessageBox.Show("添加成功！");
+                    string sql = "INSERT INTO userin VALUES('" + classid + "', '123456', 2); ";
+                    int kk = mc.Myinsert(sql);
+                }
+                else
+                {
+                    MessageBox.Show("添加失败！");
+                }
             }
             else
             {
-                MessageBox.Show("添加失败！");
+                MessageBox.Show("请输入完整信息");
             }
-
         }
-
+        //课程时间选择
         private void button13_Click(object sender, EventArgs e)
         {
             Formclass fcl = new Formclass();
             fcl.ShowDialog();
         }
-
+        //添加课程
         private void button12_Click(object sender, EventArgs e)
         {
             string classnum = textBox6.Text;
@@ -193,30 +209,37 @@ namespace StudentClassControl
             string classop = comboBox5.Text;
             string classed = comboBox9.Text;
             string clweaktime = FormControl.weaktime;
-
-            string sqlin = "INSERT INTO choseclass VALUES " +
-                "("+classnum+", '"+classname+"', '"+teachernum+"', "+classop+", "+classed+", '"+classroom+"', "+classroomid+", '"+clweaktime+"'); ";
-            int key = mc.Myinsert(sqlin);
-            if (key >= 1)
+            int ke = 0;
+            if (classnum != "" && classname != "" && teachernum != "" && classroom != "" && classroomid != "" && classop != "" && classed != "" && clweaktime != "")
             {
-                MessageBox.Show("添加成功");
+                string sqlin = "INSERT INTO choseclass VALUES " +
+              "(" + classnum + ", '" + classname + "', '" + teachernum + "', " + classop + ", " + classed + ", '" + classroom + "', " + classroomid + ", '" + clweaktime + "'); ";
+                int key = mc.Myinsert(sqlin);
+                if (key >= 1)
+                {
+                    MessageBox.Show("添加成功");
+                }
+                else
+                {
+                    MessageBox.Show("添加失败");
+                }
             }
             else
             {
-                MessageBox.Show("添加失败");
+                MessageBox.Show("请输入完整信息");
             }
         }
-
+        //导出教师excel
         private void button6_Click(object sender, EventArgs e)
         {
             ex.ExportExcel_tea("教师信息表");
         }
-
+        //导出课程表
         private void button9_Click(object sender, EventArgs e)
         {
             ex.ExportExcel_cla("课程信息表");
         }
-
+        //导入教师表
         private void button7_Click(object sender, EventArgs e)
         {
             Class1 cs = new Class1();
@@ -227,7 +250,7 @@ namespace StudentClassControl
                 dataGridView2.DataSource = ds.Tables[0];
             }
         }
-
+        //导入课程表
         private void button10_Click(object sender, EventArgs e)
         {
             Class1 cs = new Class1();
@@ -236,6 +259,111 @@ namespace StudentClassControl
             if (ds != null)
             {
                 dataGridView3.DataSource = ds.Tables[0];
+            }
+        }
+        //excel添加教师
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.DataSource == null)
+            {
+                MessageBox.Show("请先导入信息");
+            }
+            else
+            {
+                //string data = dataGridView1[0, 1].Value.ToString();
+                //MessageBox.Show(data + dataGridView1[1, 1].Value.ToString() + dataGridView1.Rows.Count);
+                string sqlop = "INSERT INTO teacher VALUES";
+                string sqled = "";
+                int len = dataGridView2.Rows.Count - 1;
+                for (int i = 1; i < len; i++)
+                {
+                    sqled = sqled +
+                         "('" + dataGridView2[0, i].Value.ToString() +
+                         "','" + dataGridView2[1, i].Value.ToString() +
+                         "','" + dataGridView2[2, i].Value.ToString() + 
+                         "','" + dataGridView2[3, i].Value.ToString() + "')";
+                    if (i + 1 < len)
+                    {
+                        sqled = sqled + ",";
+                    }
+                    else
+                    {
+                        sqled = sqled + ";";
+                    }
+                    string sqlin = "INSERT INTO userin VALUES('" + dataGridView2[0, i].Value.ToString() + "', '123456', 2); ";
+                    int kk = mc.Myinsert(sqlin);
+                }
+               
+                int key = mc.Myinsert(sqlop + sqled);
+                //string te = sqlop + sqled;
+                if (key >= 1)
+                {
+                    MessageBox.Show("成功录入" + key + "条信息");
+                }
+                else
+                {
+                    MessageBox.Show("录入失败");
+                }
+            }
+        }
+        //excel添加课程
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (dataGridView3.DataSource == null)
+            {
+                MessageBox.Show("请先导入信息");
+            }
+            else
+            {
+                string sqlop = "INSERT INTO choseclass VALUES";
+                string sqled = "";
+                int len = dataGridView3.Rows.Count - 1;
+                for (int i = 1; i < len; i++)
+                {
+                    sqled = sqled +
+                       "(" + dataGridView3[0, i].Value.ToString() + 
+                       ", '" + dataGridView3[1, i].Value.ToString() + 
+                       "', '" + dataGridView3[2, i].Value.ToString() +
+                       "', " + dataGridView3[3, i].Value.ToString() +
+                       ", " + dataGridView3[4, i].Value.ToString() +
+                       ", '" + dataGridView3[5, i].Value.ToString() +
+                       "', " + dataGridView3[6, i].Value.ToString() + 
+                       ", '" + dataGridView3[7, i].Value.ToString() + "')";
+                    if (i + 1 < len)
+                    {
+                        sqled = sqled + ",";
+                    }
+                    else
+                    {
+                        sqled = sqled + ";";
+                    }
+                }
+
+                int key = mc.Myinsert(sqlop + sqled);
+                //string te = sqlop + sqled;
+                if (key >= 1)
+                {
+                    MessageBox.Show("成功录入" + key + "条信息");
+                }
+                else
+                {
+                    MessageBox.Show("录入失败");
+                }
+            }
+        }
+        //查询学生表
+        private void button14_Click(object sender, EventArgs e)
+        {
+            string stuid = textBox8.Text;
+            string sqlstu = "SELECT * FROM student WHERE id='"+stuid+"'";
+            DataSet data = mc.Selectout(sqlstu,"student");
+            if(data!=null)
+            {
+                dataGridView4.DataSource = data.Tables[0];
+            }
+            else
+            {
+                MessageBox.Show("查询失败");
             }
         }
     }

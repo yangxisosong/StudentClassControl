@@ -208,23 +208,27 @@ namespace StudentClassControl
             DataSet ds = new DataSet();
             try
             {
-                conna.Open();
+                if (conna.State != ConnectionState.Open)
+                {
+                    conna.Open();
+                }
+                string cmdid = "INSERT INTO " + table + " VALUES ('" + id + "','" + name + "','" + sex + "'," + stuclass + ",'" + discipline + "','" + college + "'," + intime + ");";
+                MySqlCommand sqlCmd = new MySqlCommand(cmdid, conna);
+                MySqlDataAdapter sda = new MySqlDataAdapter(sqlCmd);
+                int iet = sqlCmd.ExecuteNonQuery();
+                conna.Close();
+                if (iet == 1)
+                {
+
+                    return 1;
+                }
             }
             catch (MySqlException e)
             {
-                return 0;
-            }
-            string cmdid = "INSERT INTO "+table+" VALUES ('"+id+"','"+name+"','"+sex+"',"+stuclass+",'"+discipline+"','"+college+"',"+intime+");";
-            MySqlCommand sqlCmd = new MySqlCommand(cmdid, conna);
-            MySqlDataAdapter sda = new MySqlDataAdapter(sqlCmd);
-            int iet = sqlCmd.ExecuteNonQuery();
-            conna.Close();
-            if (iet == 1)
-            {
-
-                return 1;
+                return 0; 
             }
             return 0;
+
         }
         //自定义插入
         public int Myinsert(string ins)
@@ -232,7 +236,10 @@ namespace StudentClassControl
             DataSet ds = new DataSet();
             try
             {
-                conna.Open();
+                if (conna.State != ConnectionState.Open)
+                {
+                    conna.Open();
+                }
             }
             catch (MySqlException e)
             {
@@ -256,8 +263,40 @@ namespace StudentClassControl
             }
             catch
             {
+                conna.Close();
                 return 0;
             }   
+        }
+        //自定义查询
+        public DataSet Selectout(string sqlout,string table)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                if (conna.State != ConnectionState.Open)
+                {
+                    conna.Open();
+                }
+            }
+            catch (MySqlException e)
+            {
+                return null;
+            }
+            string cmdid = sqlout;
+            try
+            {
+                MySqlCommand sqlCmd = new MySqlCommand(cmdid, conna);
+                MySqlDataAdapter sda = new MySqlDataAdapter(sqlCmd);
+                //int iet = sqlCmd.ExecuteNonQuery();
+                sda.Fill(ds, table);
+                conna.Close();
+                return ds;
+            }
+            catch
+            {
+                conna.Close();
+                return null;
+            }
         }
         public static string Insertstr(string table,string key1,string key2,string value1,string value2 )
         {

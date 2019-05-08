@@ -152,7 +152,7 @@ namespace StudentClassControl
             worksheet.Cells[1, 5] = "结束周数  ";
             worksheet.Cells[1, 6] = "教学楼        ";
             worksheet.Cells[1, 7] = "教室  ";
-            worksheet.Cells[1, 7] = "课程时间（周数节数）中间以*隔开";
+            worksheet.Cells[1, 8] = "课程时间（周数节数）中间以*隔开";
             ////写入数值
             //for (int r = 0; r < myDGV.Rows.Count; r++)
             //{

@@ -85,7 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Excelcon.cs" />
-    <Compile Include="sence\ExcelControl.cs" />
     <Compile Include="Formclass.cs">
       <SubType>Form</SubType>
     </Compile>
