@@ -288,7 +288,7 @@ namespace StudentClassControl
                 MySqlCommand sqlCmd = new MySqlCommand(cmdid, conna);
                 MySqlDataAdapter sda = new MySqlDataAdapter(sqlCmd);
                 //int iet = sqlCmd.ExecuteNonQuery();
-                sda.Fill(ds, table);
+                sda.Fill(ds,table);
                 conna.Close();
                 return ds;
             }

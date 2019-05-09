@@ -357,9 +357,170 @@ namespace StudentClassControl
             string stuid = textBox8.Text;
             string sqlstu = "SELECT * FROM student WHERE id='"+stuid+"'";
             DataSet data = mc.Selectout(sqlstu,"student");
-            if(data!=null)
+            if(data.Tables[0].Rows.Count!=0)
             {
+                //dataGridView4.DataSource = data.Tables[0];
                 dataGridView4.DataSource = data.Tables[0];
+                dataGridView4.Columns[0].HeaderText = "学号";
+                dataGridView4.Columns[1].HeaderText = "姓名";
+                dataGridView4.Columns[2].HeaderText = "性别";
+                dataGridView4.Columns[3].HeaderText = "班级";
+                dataGridView4.Columns[4].HeaderText = "专业";
+                dataGridView4.Columns[5].HeaderText = "学院";
+                dataGridView4.Columns[6].HeaderText = "入学时间";
+            }
+            else
+            {
+                MessageBox.Show("查询失败");
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            dataGridView4.ReadOnly = false;
+            dataGridView4.Columns[0].ReadOnly = true;
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            if (dataGridView4.DataSource == null)
+            {
+                MessageBox.Show("请先导入信息");
+            }
+            else
+            {
+                //格式 [列，行] Rows代表行的集合，Columns代表列的集合。
+                string sqlop = "replace INTO student VALUES";
+                string sqled = "";
+                int len = dataGridView4.Rows.Count - 1;
+                for (int i = 0; i < len; i++)
+                {
+                    sqled = sqled +
+                        "('" + dataGridView4[0, i].Value.ToString() +
+                        "', '" + dataGridView4[1, i].Value.ToString() +
+                        "', '" + dataGridView4[2, i].Value.ToString() +
+                        "', " + dataGridView4[3, i].Value.ToString() +
+                        ", '" + dataGridView4[4, i].Value.ToString() +
+                        "', '" + dataGridView4[5, i].Value.ToString() +
+                        "', " + dataGridView4[6, i].Value.ToString() + ")";
+                    if (i + 1 < len)
+                    {
+                        sqled = sqled + ",";
+                    }
+                    else
+                    {
+                        sqled = sqled + ";";
+                    }
+                    //string sql = "INSERT INTO userin VALUES('" + dataGridView4[0, i].Value.ToString() + "', '123456', 1); ";
+                    //int kk = mc.Myinsert(sql);
+                }
+                string ts = sqlop + sqled;
+                int key = mc.Myinsert(sqlop + sqled);
+                if (key >= 1)
+                {
+                    MessageBox.Show("成功更新" + (key-1) + "条信息");
+                }
+                else
+                {
+                    MessageBox.Show("录入失败");
+                }
+            }
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            dataGridView5.ReadOnly = false;
+            dataGridView5.Columns[0].ReadOnly = true;
+        }
+        //课程表编辑
+        private void button19_Click(object sender, EventArgs e)
+        {
+            dataGridView6.ReadOnly = false;
+            dataGridView6.Columns[0].ReadOnly = true;
+        }
+        //课程表更新
+        private void button21_Click(object sender, EventArgs e)
+        {
+            if (dataGridView6.DataSource == null)
+            {
+                MessageBox.Show("请先导入信息");
+            }
+            else
+            {
+                string sqlop = "replace INTO choseclass VALUES";
+                string sqled = "";
+                int len = dataGridView6.Rows.Count - 1;
+                for (int i = 0; i < len; i++)
+                {
+                    sqled = sqled +
+                       "(" + dataGridView6[0, i].Value.ToString() +
+                       ", '" + dataGridView6[1, i].Value.ToString() +
+                       "', '" + dataGridView6[2, i].Value.ToString() +
+                       "', " + dataGridView6[3, i].Value.ToString() +
+                       ", " + dataGridView6[4, i].Value.ToString() +
+                       ", '" + dataGridView6[5, i].Value.ToString() +
+                       "', " + dataGridView6[6, i].Value.ToString() +
+                       ", '" + dataGridView6[7, i].Value.ToString() + "')";
+                    if (i + 1 < len)
+                    {
+                        sqled = sqled + ",";
+                    }
+                    else
+                    {
+                        sqled = sqled + ";";
+                    }
+                }
+
+                int key = mc.Myinsert(sqlop + sqled);
+                //string te = sqlop + sqled;
+                if (key >= 1)
+                {
+                    MessageBox.Show("成功录入" + key + "条信息");
+                }
+                else
+                {
+                    MessageBox.Show("录入失败");
+                }
+            }
+        }
+        //查询课程
+        private void button18_Click(object sender, EventArgs e)
+        {
+            string stuid = textBox10.Text;
+            string sqlstu = "SELECT * FROM choseclass WHERE class_id='" + stuid + "'";
+            DataSet data = mc.Selectout(sqlstu, "choseclass");
+            if (data.Tables[0].Rows.Count != 0)
+            {
+                //dataGridView4.DataSource = data.Tables[0];
+                dataGridView6.DataSource = data.Tables[0];
+                dataGridView6.Columns[0].HeaderText = "课程号";
+                dataGridView6.Columns[1].HeaderText = "课程名";
+                dataGridView6.Columns[2].HeaderText = "教师工号";
+                dataGridView6.Columns[3].HeaderText = "开始周数";
+                dataGridView6.Columns[4].HeaderText = "结束周数";
+                dataGridView6.Columns[5].HeaderText = "教学楼";
+                dataGridView6.Columns[6].HeaderText = "教室";
+                dataGridView6.Columns[6].HeaderText = "上课时间";
+            }
+            else
+            {
+                MessageBox.Show("查询失败");
+            }
+        }
+        //教师查询
+        private void button16_Click(object sender, EventArgs e)
+        {
+            string stuid = textBox9.Text;
+            string sqlstu = "SELECT * FROM teacher WHERE id='" + stuid + "'";
+            DataSet data = mc.Selectout(sqlstu, "teacher");
+            if (data.Tables[0].Rows.Count != 0)
+            {
+                //dataGridView4.DataSource = data.Tables[0];
+                dataGridView5.DataSource = data.Tables[0];
+                dataGridView5.Columns[0].HeaderText = "教师工号";
+                dataGridView5.Columns[1].HeaderText = "姓名";
+                dataGridView5.Columns[2].HeaderText = "性别";
+                dataGridView5.Columns[3].HeaderText = "学院";
             }
             else
             {
