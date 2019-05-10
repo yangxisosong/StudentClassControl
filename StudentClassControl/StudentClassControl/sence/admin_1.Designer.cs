@@ -30,13 +30,24 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.button14 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button21 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -106,17 +117,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
+            this.comboBox10 = new System.Windows.Forms.ComboBox();
+            this.button22 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
@@ -171,6 +174,26 @@
             this.tabPage1.Text = "学生管理";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(336, 99);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(117, 46);
+            this.button20.TabIndex = 5;
+            this.button20.Text = "更新数据";
+            this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(31, 99);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(117, 46);
+            this.button15.TabIndex = 4;
+            this.button15.Text = "编辑";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(102, 19);
@@ -211,6 +234,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button22);
             this.tabPage2.Controls.Add(this.textBox9);
             this.tabPage2.Controls.Add(this.label20);
             this.tabPage2.Controls.Add(this.button17);
@@ -224,12 +248,49 @@
             this.tabPage2.Text = "教师管理";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(97, 26);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(186, 25);
+            this.textBox9.TabIndex = 5;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(39, 36);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(52, 15);
+            this.label20.TabIndex = 3;
+            this.label20.Text = "工号：";
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(300, 98);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(75, 34);
+            this.button17.TabIndex = 2;
+            this.button17.Text = "编辑";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(300, 28);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(75, 23);
+            this.button16.TabIndex = 1;
+            this.button16.Text = "查询";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
             // dataGridView5
             // 
-            this.dataGridView5.AllowUserToAddRows = false;
+            this.dataGridView5.AllowUserToDeleteRows = false;
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView5.Location = new System.Drawing.Point(27, 179);
             this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.ReadOnly = true;
             this.dataGridView5.RowTemplate.Height = 27;
             this.dataGridView5.Size = new System.Drawing.Size(661, 395);
             this.dataGridView5.TabIndex = 0;
@@ -249,6 +310,52 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "课程管理";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button21
+            // 
+            this.button21.Location = new System.Drawing.Point(467, 140);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(75, 23);
+            this.button21.TabIndex = 5;
+            this.button21.Text = "更新数据";
+            this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
+            // 
+            // button19
+            // 
+            this.button19.Location = new System.Drawing.Point(349, 108);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(75, 23);
+            this.button19.TabIndex = 4;
+            this.button19.Text = "编辑";
+            this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(349, 47);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(75, 23);
+            this.button18.TabIndex = 3;
+            this.button18.Text = "查询";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(49, 69);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(67, 15);
+            this.label21.TabIndex = 2;
+            this.label21.Text = "课程号：";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(149, 59);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(116, 25);
+            this.textBox10.TabIndex = 1;
             // 
             // dataGridView6
             // 
@@ -762,6 +869,8 @@
             // 
             this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox5.Controls.Add(this.comboBox10);
+            this.groupBox5.Controls.Add(this.label22);
             this.groupBox5.Controls.Add(this.button13);
             this.groupBox5.Controls.Add(this.button12);
             this.groupBox5.Controls.Add(this.textBox7);
@@ -802,7 +911,7 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(115, 511);
+            this.button12.Location = new System.Drawing.Point(298, 517);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(145, 53);
             this.button12.TabIndex = 17;
@@ -1056,107 +1165,45 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "管理员";
             // 
-            // button15
+            // label22
             // 
-            this.button15.Location = new System.Drawing.Point(31, 99);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(117, 46);
-            this.button15.TabIndex = 4;
-            this.button15.Text = "编辑";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(32, 480);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(69, 20);
+            this.label22.TabIndex = 19;
+            this.label22.Text = "学分：";
             // 
-            // button16
+            // comboBox10
             // 
-            this.button16.Location = new System.Drawing.Point(300, 28);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(75, 23);
-            this.button16.TabIndex = 1;
-            this.button16.Text = "查询";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
+            this.comboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox10.FormattingEnabled = true;
+            this.comboBox10.Items.AddRange(new object[] {
+            "1",
+            "1.5",
+            "2",
+            "2.5",
+            "3",
+            "3.5",
+            "4",
+            "4.5",
+            "5",
+            "",
+            ""});
+            this.comboBox10.Location = new System.Drawing.Point(147, 480);
+            this.comboBox10.Name = "comboBox10";
+            this.comboBox10.Size = new System.Drawing.Size(113, 28);
+            this.comboBox10.TabIndex = 20;
             // 
-            // button17
+            // button22
             // 
-            this.button17.Location = new System.Drawing.Point(300, 121);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(75, 23);
-            this.button17.TabIndex = 2;
-            this.button17.Text = "编辑";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(39, 36);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(52, 15);
-            this.label20.TabIndex = 3;
-            this.label20.Text = "工号：";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(97, 26);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(186, 25);
-            this.textBox9.TabIndex = 5;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(149, 59);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(116, 25);
-            this.textBox10.TabIndex = 1;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(49, 69);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(67, 15);
-            this.label21.TabIndex = 2;
-            this.label21.Text = "课程号：";
-            // 
-            // button18
-            // 
-            this.button18.Location = new System.Drawing.Point(349, 47);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(75, 23);
-            this.button18.TabIndex = 3;
-            this.button18.Text = "查询";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
-            // 
-            // button19
-            // 
-            this.button19.Location = new System.Drawing.Point(349, 108);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(75, 23);
-            this.button19.TabIndex = 4;
-            this.button19.Text = "编辑";
-            this.button19.UseVisualStyleBackColor = true;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
-            // 
-            // button20
-            // 
-            this.button20.Location = new System.Drawing.Point(336, 99);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(117, 46);
-            this.button20.TabIndex = 5;
-            this.button20.Text = "更新数据";
-            this.button20.UseVisualStyleBackColor = true;
-            this.button20.Click += new System.EventHandler(this.button20_Click);
-            // 
-            // button21
-            // 
-            this.button21.Location = new System.Drawing.Point(467, 140);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(75, 23);
-            this.button21.TabIndex = 5;
-            this.button21.Text = "更新数据";
-            this.button21.UseVisualStyleBackColor = true;
-            this.button21.Click += new System.EventHandler(this.button21_Click);
+            this.button22.Location = new System.Drawing.Point(408, 98);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(75, 34);
+            this.button22.TabIndex = 6;
+            this.button22.Text = "更新数据";
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // admin_1
             // 
@@ -1289,5 +1336,8 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.ComboBox comboBox10;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Button button22;
     }
 }

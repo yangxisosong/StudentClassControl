@@ -203,17 +203,17 @@ namespace StudentClassControl
         {
             string classnum = textBox6.Text;
             string classname = textBox5.Text;
+            string class_live = comboBox10.Text;
             string teachernum = textBox7.Text;
             string classroom = comboBox6.Text;
             string classroomid = comboBox7.Text + comboBox8.Text;
             string classop = comboBox5.Text;
             string classed = comboBox9.Text;
             string clweaktime = FormControl.weaktime;
-            int ke = 0;
-            if (classnum != "" && classname != "" && teachernum != "" && classroom != "" && classroomid != "" && classop != "" && classed != "" && clweaktime != "")
+            if (classnum != "" && classname != "" && teachernum != "" && classroom != "" && classroomid != "" && classop != "" && classed != "" && clweaktime != "" && class_live != "")
             {
                 string sqlin = "INSERT INTO choseclass VALUES " +
-              "(" + classnum + ", '" + classname + "', '" + teachernum + "', " + classop + ", " + classed + ", '" + classroom + "', " + classroomid + ", '" + clweaktime + "'); ";
+              "(" + classnum + ", '" + classname + "',"+class_live+", '" + teachernum + "', " + classop + ", " + classed + ", '" + classroom + "', " + classroomid + ", '" + clweaktime + "'); ";
                 int key = mc.Myinsert(sqlin);
                 if (key >= 1)
                 {
@@ -323,12 +323,13 @@ namespace StudentClassControl
                     sqled = sqled +
                        "(" + dataGridView3[0, i].Value.ToString() + 
                        ", '" + dataGridView3[1, i].Value.ToString() + 
-                       "', '" + dataGridView3[2, i].Value.ToString() +
-                       "', " + dataGridView3[3, i].Value.ToString() +
-                       ", " + dataGridView3[4, i].Value.ToString() +
-                       ", '" + dataGridView3[5, i].Value.ToString() +
-                       "', " + dataGridView3[6, i].Value.ToString() + 
-                       ", '" + dataGridView3[7, i].Value.ToString() + "')";
+                       "',"+ dataGridView3[2, i].Value.ToString() +
+                       ", '" + dataGridView3[3, i].Value.ToString() +
+                       "', " + dataGridView3[4, i].Value.ToString() +
+                       ", " + dataGridView3[5, i].Value.ToString() +
+                       ", '" + dataGridView3[6, i].Value.ToString() +
+                       "', " + dataGridView3[7, i].Value.ToString() + 
+                       ", '" + dataGridView3[8, i].Value.ToString() + "')";
                     if (i + 1 < len)
                     {
                         sqled = sqled + ",";
@@ -380,7 +381,7 @@ namespace StudentClassControl
             dataGridView4.ReadOnly = false;
             dataGridView4.Columns[0].ReadOnly = true;
         }
-
+        //更新学生数据
         private void button20_Click(object sender, EventArgs e)
         {
             if (dataGridView4.DataSource == null)
@@ -525,6 +526,48 @@ namespace StudentClassControl
             else
             {
                 MessageBox.Show("查询失败");
+            }
+        }
+        //更新教师数据
+        private void button22_Click(object sender, EventArgs e)
+        {
+            if (dataGridView5.DataSource == null)
+            {
+                MessageBox.Show("请先导入信息");
+            }
+            else
+            {
+                //string data = dataGridView1[0, 1].Value.ToString();
+                //MessageBox.Show(data + dataGridView1[1, 1].Value.ToString() + dataGridView1.Rows.Count);
+                string sqlop = "replace INTO teacher VALUES";
+                string sqled = "";
+                int len = dataGridView5.Rows.Count - 1;
+                for (int i = 0; i < len; i++)
+                {
+                    sqled = sqled +
+                         "('" + dataGridView5[0, i].Value.ToString() +
+                         "','" + dataGridView5[1, i].Value.ToString() +
+                         "','" + dataGridView5[2, i].Value.ToString() +
+                         "','" + dataGridView5[3, i].Value.ToString() + "')";
+                    if (i + 1 < len)
+                    {
+                        sqled = sqled + ",";
+                    }
+                    else
+                    {
+                        sqled = sqled + ";";
+                    }
+                }
+                int key = mc.Myinsert(sqlop + sqled);
+                string te = sqlop + sqled;
+                if (key >= 1)
+                {
+                    MessageBox.Show("成功录入" + (key-1) + "条信息");
+                }
+                else
+                {
+                    MessageBox.Show("录入失败");
+                }
             }
         }
     }

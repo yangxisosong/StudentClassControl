@@ -147,12 +147,13 @@ namespace StudentClassControl
             //worksheet.Cells[1, 0] = myDGV.Columns[i].HeaderText;
             worksheet.Cells[1, 1] = "课程号         ";
             worksheet.Cells[1, 2] = "课程名    ";
-            worksheet.Cells[1, 3] = "教师工号  ";
-            worksheet.Cells[1, 4] = "开始周数  ";
-            worksheet.Cells[1, 5] = "结束周数  ";
-            worksheet.Cells[1, 6] = "教学楼        ";
-            worksheet.Cells[1, 7] = "教室  ";
-            worksheet.Cells[1, 8] = "课程时间（周数节数）中间以*隔开";
+            worksheet.Cells[1, 3] = "学分   ";
+            worksheet.Cells[1, 4] = "教师工号  ";
+            worksheet.Cells[1, 5] = "开始周数  ";
+            worksheet.Cells[1, 6] = "结束周数  ";
+            worksheet.Cells[1, 7] = "教学楼        ";
+            worksheet.Cells[1, 8] = "教室  ";
+            worksheet.Cells[1, 9] = "课程时间（周数节数）中间以*隔开";
             ////写入数值
             //for (int r = 0; r < myDGV.Rows.Count; r++)
             //{

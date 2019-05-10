@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StudentClassControl.exe" size="2038800">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StudentClassControl.exe" size="2040336">
       <assemblyIdentity name="StudentClassControl" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>I0P+eOYmGAcawwq69fzBQ9EcFl2YH7Q9w5fdE16S2uU=</dsig:DigestValue>
+        <dsig:DigestValue>bL4c2TA3JahCXfcHMXI7Wz4vBHsYg1cZCFg0Ii2xnKI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -73,7 +73,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>oLw0oCAPqhCxfuFVYde/W+ylftZHq9WHr/49sYNw/kw=</dsig:DigestValue>
+        <dsig:DigestValue>hvZXm4hfGJ/rCGbKWv5qoKu1OEGIxu+o8DenMVcU/OM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
