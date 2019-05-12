@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button23 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -37,6 +38,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button22 = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.button17 = new System.Windows.Forms.Button();
@@ -96,6 +98,8 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.comboBox10 = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -117,9 +121,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.comboBox10 = new System.Windows.Forms.ComboBox();
-            this.button22 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
@@ -160,6 +161,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button23);
             this.tabPage1.Controls.Add(this.button20);
             this.tabPage1.Controls.Add(this.button15);
             this.tabPage1.Controls.Add(this.textBox8);
@@ -174,9 +176,19 @@
             this.tabPage1.Text = "学生管理";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button23
+            // 
+            this.button23.Location = new System.Drawing.Point(627, 85);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(95, 46);
+            this.button23.TabIndex = 6;
+            this.button23.Text = "删除数据";
+            this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.button23_Click);
+            // 
             // button20
             // 
-            this.button20.Location = new System.Drawing.Point(336, 99);
+            this.button20.Location = new System.Drawing.Point(316, 85);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(117, 46);
             this.button20.TabIndex = 5;
@@ -247,6 +259,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "教师管理";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button22
+            // 
+            this.button22.Location = new System.Drawing.Point(408, 98);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(75, 34);
+            this.button22.TabIndex = 6;
+            this.button22.Text = "更新数据";
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // textBox9
             // 
@@ -359,10 +381,11 @@
             // 
             // dataGridView6
             // 
-            this.dataGridView6.AllowUserToAddRows = false;
+            this.dataGridView6.AllowUserToDeleteRows = false;
             this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView6.Location = new System.Drawing.Point(34, 227);
             this.dataGridView6.Name = "dataGridView6";
+            this.dataGridView6.ReadOnly = true;
             this.dataGridView6.RowTemplate.Height = 27;
             this.dataGridView6.Size = new System.Drawing.Size(815, 269);
             this.dataGridView6.TabIndex = 0;
@@ -899,6 +922,36 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "手动添加";
             // 
+            // comboBox10
+            // 
+            this.comboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox10.FormattingEnabled = true;
+            this.comboBox10.Items.AddRange(new object[] {
+            "1",
+            "1.5",
+            "2",
+            "2.5",
+            "3",
+            "3.5",
+            "4",
+            "4.5",
+            "5",
+            "",
+            ""});
+            this.comboBox10.Location = new System.Drawing.Point(147, 480);
+            this.comboBox10.Name = "comboBox10";
+            this.comboBox10.Size = new System.Drawing.Size(113, 28);
+            this.comboBox10.TabIndex = 20;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(32, 480);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(69, 20);
+            this.label22.TabIndex = 19;
+            this.label22.Text = "学分：";
+            // 
             // button13
             // 
             this.button13.Location = new System.Drawing.Point(147, 421);
@@ -1165,46 +1218,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "管理员";
             // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(32, 480);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(69, 20);
-            this.label22.TabIndex = 19;
-            this.label22.Text = "学分：";
-            // 
-            // comboBox10
-            // 
-            this.comboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Items.AddRange(new object[] {
-            "1",
-            "1.5",
-            "2",
-            "2.5",
-            "3",
-            "3.5",
-            "4",
-            "4.5",
-            "5",
-            "",
-            ""});
-            this.comboBox10.Location = new System.Drawing.Point(147, 480);
-            this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(113, 28);
-            this.comboBox10.TabIndex = 20;
-            // 
-            // button22
-            // 
-            this.button22.Location = new System.Drawing.Point(408, 98);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(75, 34);
-            this.button22.TabIndex = 6;
-            this.button22.Text = "更新数据";
-            this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.button22_Click);
-            // 
             // admin_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -1339,5 +1352,6 @@
         private System.Windows.Forms.ComboBox comboBox10;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.Button button23;
     }
 }

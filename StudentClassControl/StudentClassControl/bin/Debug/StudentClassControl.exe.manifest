@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StudentClassControl.exe" size="2040336">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StudentClassControl.exe" size="2043920">
       <assemblyIdentity name="StudentClassControl" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>bL4c2TA3JahCXfcHMXI7Wz4vBHsYg1cZCFg0Ii2xnKI=</dsig:DigestValue>
+        <dsig:DigestValue>bLTxBwwVh0lcGab4suGv13xa3sCcwpAtV5RAUvwH6pM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -73,7 +73,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>hvZXm4hfGJ/rCGbKWv5qoKu1OEGIxu+o8DenMVcU/OM=</dsig:DigestValue>
+        <dsig:DigestValue>ZNBrSnbT6WOjWUzmKL596ZSFTrTmJzNnn50P/D2+cH4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -95,13 +95,13 @@
       <dsig:DigestValue>2p9X0kjoJZ+jSZmbLqWmGFy+Ez/oPln8DXbh8DJ9IZQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="openfile.txt" size="610">
+  <file name="openfile.txt" size="1247">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>tXdk/yCBG7rhPEhLcf65sNpGL/d+hS+nB/cJ1QgdTRI=</dsig:DigestValue>
+      <dsig:DigestValue>+oLjNmBjXYqmjWNgoQmu13hJAkOv6z2nRI+xUwrPpCA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="outputExcle.txt" size="16295">

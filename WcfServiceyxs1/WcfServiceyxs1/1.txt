@@ -1,0 +1,22 @@
+string connstr = "server=localhost;port = 3306; database = yxssql;username = root;password = 123456;";
+            using (MySqlConnection conn = new MySqlConnection(connstr))
+            {
+                try
+                {
+                    conn.Open();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter("select * from bmi_table", conn);
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds, "bmi_table");
+                    dataGridView1.DataSource = ds.Tables[0];
+                    MessageBox.Show("12");
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+            }

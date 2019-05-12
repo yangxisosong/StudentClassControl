@@ -38,6 +38,48 @@ namespace StudentClassControl.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Mycase", ReplyAction="http://tempuri.org/IService1/MycaseResponse")]
         System.Threading.Tasks.Task<string> MycaseAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Loadding", ReplyAction="http://tempuri.org/IService1/LoaddingResponse")]
+        int Loadding(string id, string passward);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Loadding", ReplyAction="http://tempuri.org/IService1/LoaddingResponse")]
+        System.Threading.Tasks.Task<int> LoaddingAsync(string id, string passward);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Changepassward", ReplyAction="http://tempuri.org/IService1/ChangepasswardResponse")]
+        int Changepassward(string pass, string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Changepassward", ReplyAction="http://tempuri.org/IService1/ChangepasswardResponse")]
+        System.Threading.Tasks.Task<int> ChangepasswardAsync(string pass, string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Selectin", ReplyAction="http://tempuri.org/IService1/SelectinResponse")]
+        System.Data.DataSet Selectin(string id, string table);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Selectin", ReplyAction="http://tempuri.org/IService1/SelectinResponse")]
+        System.Threading.Tasks.Task<System.Data.DataSet> SelectinAsync(string id, string table);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Selectschool", ReplyAction="http://tempuri.org/IService1/SelectschoolResponse")]
+        System.Data.DataSet Selectschool(string table);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Selectschool", ReplyAction="http://tempuri.org/IService1/SelectschoolResponse")]
+        System.Threading.Tasks.Task<System.Data.DataSet> SelectschoolAsync(string table);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Insert", ReplyAction="http://tempuri.org/IService1/InsertResponse")]
+        int Insert(string table, string id, string name, string sex, string stuclass, string discipline, string college, string intime);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Insert", ReplyAction="http://tempuri.org/IService1/InsertResponse")]
+        System.Threading.Tasks.Task<int> InsertAsync(string table, string id, string name, string sex, string stuclass, string discipline, string college, string intime);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Myinsert", ReplyAction="http://tempuri.org/IService1/MyinsertResponse")]
+        int Myinsert(string ins);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Myinsert", ReplyAction="http://tempuri.org/IService1/MyinsertResponse")]
+        System.Threading.Tasks.Task<int> MyinsertAsync(string ins);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Selectout", ReplyAction="http://tempuri.org/IService1/SelectoutResponse")]
+        System.Data.DataSet Selectout(string sqlout, string table);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Selectout", ReplyAction="http://tempuri.org/IService1/SelectoutResponse")]
+        System.Threading.Tasks.Task<System.Data.DataSet> SelectoutAsync(string sqlout, string table);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,6 +139,62 @@ namespace StudentClassControl.ServiceReference1 {
         
         public System.Threading.Tasks.Task<string> MycaseAsync() {
             return base.Channel.MycaseAsync();
+        }
+        
+        public int Loadding(string id, string passward) {
+            return base.Channel.Loadding(id, passward);
+        }
+        
+        public System.Threading.Tasks.Task<int> LoaddingAsync(string id, string passward) {
+            return base.Channel.LoaddingAsync(id, passward);
+        }
+        
+        public int Changepassward(string pass, string id) {
+            return base.Channel.Changepassward(pass, id);
+        }
+        
+        public System.Threading.Tasks.Task<int> ChangepasswardAsync(string pass, string id) {
+            return base.Channel.ChangepasswardAsync(pass, id);
+        }
+        
+        public System.Data.DataSet Selectin(string id, string table) {
+            return base.Channel.Selectin(id, table);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> SelectinAsync(string id, string table) {
+            return base.Channel.SelectinAsync(id, table);
+        }
+        
+        public System.Data.DataSet Selectschool(string table) {
+            return base.Channel.Selectschool(table);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> SelectschoolAsync(string table) {
+            return base.Channel.SelectschoolAsync(table);
+        }
+        
+        public int Insert(string table, string id, string name, string sex, string stuclass, string discipline, string college, string intime) {
+            return base.Channel.Insert(table, id, name, sex, stuclass, discipline, college, intime);
+        }
+        
+        public System.Threading.Tasks.Task<int> InsertAsync(string table, string id, string name, string sex, string stuclass, string discipline, string college, string intime) {
+            return base.Channel.InsertAsync(table, id, name, sex, stuclass, discipline, college, intime);
+        }
+        
+        public int Myinsert(string ins) {
+            return base.Channel.Myinsert(ins);
+        }
+        
+        public System.Threading.Tasks.Task<int> MyinsertAsync(string ins) {
+            return base.Channel.MyinsertAsync(ins);
+        }
+        
+        public System.Data.DataSet Selectout(string sqlout, string table) {
+            return base.Channel.Selectout(sqlout, table);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> SelectoutAsync(string sqlout, string table) {
+            return base.Channel.SelectoutAsync(sqlout, table);
         }
     }
 }

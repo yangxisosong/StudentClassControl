@@ -18,3 +18,25 @@ if (result == true)
     // Open document
     string filename = dlg.FileName;
 }
+
+ Service1Client client = new Service1Client();
+           int kk= client.Test(8);
+            MessageBox.Show(kk + "");
+
+for (int i = 0; i < this.dataGridView1.SelectedRows.Count; i++)//遍历所有选中的行
+
+{   
+
+　　this.dataGridView1.SelectedRows[i].Cells[0].EditedFormattedValue.ToString();
+
+}
+
+datagridview.CurrentCell.RowIndex;是当前活动的单元格的行的索引
+
+DataGridView1.CurrentRow.Index 获得包含当前单元格的行的索引
+
+datagridview.SelectedRows 是选中行的集合
+
+datagridview.SelectedColumns 是选中列的集合
+
+datagridview.SelectedCells 是选中单元格的集合

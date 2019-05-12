@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentClassControl.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace StudentClassControl
 {
     public partial class Form3 : Form
     {
+        Service1Client mc = new Service1Client();
         public Form3()
         {
             InitializeComponent();

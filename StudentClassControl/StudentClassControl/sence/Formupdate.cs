@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentClassControl.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,10 @@ namespace StudentClassControl
 {
     public partial class Formupdate : Form
     {
+
+        //数据查询对象
+        Service1Client mc = new Service1Client();
+
         public Formupdate()
         {
             InitializeComponent();
@@ -37,17 +42,21 @@ namespace StudentClassControl
             else
             {
                 //判断用户名密码是否正确 power>0 ok
-                int power = MysqlControl.Loadding(username, password);
+                int power = mc.Loadding(username, password);
                 if (power > 0)
                 {
                     DialogResult result = MessageBox.Show("确定将密码更改为 ：" + passnew,"修改", MessageBoxButtons.OKCancel);
                     if (result == DialogResult.OK)
                     {
-                        int ch = MysqlControl.Changepassward(passnew, username);
+                        int ch = mc.Changepassward(passnew, username);
                         if (ch > 0)
                         {
                             MessageBox.Show("修改成功");
                             this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("修改失败");
                         }
                     }
                     else

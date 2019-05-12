@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://139.199.86.90/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://139.199.86.90/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://139.199.86.90/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://139.199.86.90/Service1.svc?xsd=xsd3" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_DoWork_InputMessage">
@@ -31,6 +32,48 @@
   <wsdl:message name="IService1_Mycase_OutputMessage">
     <wsdl:part name="parameters" element="tns:MycaseResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Loadding_InputMessage">
+    <wsdl:part name="parameters" element="tns:Loadding" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Loadding_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoaddingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Changepassward_InputMessage">
+    <wsdl:part name="parameters" element="tns:Changepassward" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Changepassward_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangepasswardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Selectin_InputMessage">
+    <wsdl:part name="parameters" element="tns:Selectin" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Selectin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Selectschool_InputMessage">
+    <wsdl:part name="parameters" element="tns:Selectschool" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Selectschool_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectschoolResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Insert_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insert" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Insert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Myinsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:Myinsert" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Myinsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MyinsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Selectout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Selectout" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Selectout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectoutResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="DoWork">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DoWork" message="tns:IService1_DoWork_InputMessage" />
@@ -47,6 +90,34 @@
     <wsdl:operation name="Mycase">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Mycase" message="tns:IService1_Mycase_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/MycaseResponse" message="tns:IService1_Mycase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Loadding">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Loadding" message="tns:IService1_Loadding_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/LoaddingResponse" message="tns:IService1_Loadding_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Changepassward">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Changepassward" message="tns:IService1_Changepassward_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ChangepasswardResponse" message="tns:IService1_Changepassward_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Selectin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Selectin" message="tns:IService1_Selectin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectinResponse" message="tns:IService1_Selectin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Selectschool">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Selectschool" message="tns:IService1_Selectschool_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectschoolResponse" message="tns:IService1_Selectschool_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Insert" message="tns:IService1_Insert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertResponse" message="tns:IService1_Insert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Myinsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Myinsert" message="tns:IService1_Myinsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MyinsertResponse" message="tns:IService1_Myinsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Selectout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Selectout" message="tns:IService1_Selectout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectoutResponse" message="tns:IService1_Selectout_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -80,6 +151,69 @@
     </wsdl:operation>
     <wsdl:operation name="Mycase">
       <soap:operation soapAction="http://tempuri.org/IService1/Mycase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Loadding">
+      <soap:operation soapAction="http://tempuri.org/IService1/Loadding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Changepassward">
+      <soap:operation soapAction="http://tempuri.org/IService1/Changepassward" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Selectin">
+      <soap:operation soapAction="http://tempuri.org/IService1/Selectin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Selectschool">
+      <soap:operation soapAction="http://tempuri.org/IService1/Selectschool" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <soap:operation soapAction="http://tempuri.org/IService1/Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Myinsert">
+      <soap:operation soapAction="http://tempuri.org/IService1/Myinsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Selectout">
+      <soap:operation soapAction="http://tempuri.org/IService1/Selectout" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

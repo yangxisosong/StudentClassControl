@@ -16,7 +16,7 @@ namespace StudentClassControl
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new admin_1());
+            Application.Run(new formload());
         }
     }
 }

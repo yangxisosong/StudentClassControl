@@ -8,11 +8,13 @@ using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Drawing.Drawing2D;
 using MySql.Data.MySqlClient;
+using StudentClassControl.ServiceReference1;
 
 namespace StudentClassControl
 {
     public partial class Form1 : Form
     {
+        Service1Client mc = new Service1Client();
         public Form1()
         {
             InitializeComponent();
