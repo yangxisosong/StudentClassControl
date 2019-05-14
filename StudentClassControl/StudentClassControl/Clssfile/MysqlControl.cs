@@ -268,7 +268,7 @@ namespace StudentClassControl
             }   
         }
         //自定义查询
-        public DataSet Selectout(string sqlout,string table)
+        public  DataSet Selectout(string sqlout,string table)
         {
             DataSet ds = new DataSet();
             try
