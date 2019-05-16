@@ -540,7 +540,7 @@ namespace StudentClassControl
                 if (classid != "") mList.Add("class_id= '" + classid + "'");
                 if (classname != "") mList.Add("class_name= '" + classname + "'");
                 if (classlave != "") mList.Add("classlave= '" + classlave + "'");
-                if (classtea != "") mList.Add("classlave= '" + classlave + "'");
+                if (classtea != "") mList.Add("classlave= '" + classtea + "'");
                 for (int i = 0; i < mList.Count; i++)
                 {
                     sqlstu += mList[i];
