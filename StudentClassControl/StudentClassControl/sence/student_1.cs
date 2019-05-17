@@ -71,6 +71,31 @@ namespace StudentClassControl
 
 
                     DataTable dt = data.Tables[0];
+                    Dim col1 As DataGridViewTextBoxColumn = New DataGridViewTextBoxColumn()
+                    // 设置标题中显示的文本
+                    col1.Name = "checkclass";
+                    col1.HeaderText = "选课"; 
+ 
+                     Dim col2 As DataGridViewTextBoxColumn = New DataGridViewTextBoxColumn()
+                    col2.Name = "classname"
+                    col2.HeaderText = "课程";
+
+                    //添加数据
+                    dataGridView1.Columns.Add(col1);
+                    dataGridView1.Columns.Add(col2);
+                    
+                    Dim row As DataGridViewRow = New DataGridViewRow();
+                    row.CreateCells(DataGridView1);
+                    //设置单元格的值
+                    row.Cells(0).Value = dt.Rows[0][0];  //"1";
+                    row.Cells(1).Value = dt.Rows[1][0];//"14140141009";
+                    DataGridView1.Rows.Add(row);
+ 
+                    //添加第二行
+                    Dim row1 As String() = {dt.Row[0][1],dt.Rpw[1][1]};//{"2", "14140141008"};
+                    DataGridView1.Rows.Add(row1);
+
+                    
                     //dataGridView1.Columns.Add("class_id", "class_name");//添加新列
                     //DataTable dt = oper.GetDataTable("db_time");//获取数据表
                     //foreach (DataColumn col in dataGridView1.Columns)
