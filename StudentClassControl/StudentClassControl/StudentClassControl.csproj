@@ -231,6 +231,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ReleaseNotes.css" />
     <None Include="Resources\Geometry Dash-GJ 按钮_02-HD%28GJ_b_爱给网_aigei_com.png" />
     <None Include="Connected Services\ServiceReference1\Service1.disco" />
     <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />

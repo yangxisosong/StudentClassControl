@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dmBXoySeHGjLREnwqNNXa2g1rvAds4yaQOkbWxZyD6U=</dsig:DigestValue>
+        <dsig:DigestValue>uButYHSDOPOTbdI4tFBEsJ1+pYnEso20dc3q9uULBtA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -73,7 +73,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+EnsUn2ZxVY5lbnKaSWwfABmmEHWqxihRktRjzbAHDU=</dsig:DigestValue>
+        <dsig:DigestValue>4O1yQXeqibKOdJgaTGszKAtRj2oLkNZu+CweMl+rzvo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -111,6 +111,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>99m9bDcllnMnj9bX3Bxw/vS/HExatOntXm/sbi73MBI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ReleaseNotes.css" size="8800">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>NgJzICZqfVa3Idz+Dr4rTY3aVi5uPFKw5MVEpWMQOXo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="StudentClassControl.exe.config" size="687">
