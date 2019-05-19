@@ -15,12 +15,13 @@ namespace StudentClassControl
     {
         Service1Client mc = new Service1Client();
         DataSet teatable;
+        List<string> classtime = new List<string>();
         public student_1()
         {
             InitializeComponent();
             teatable = mc.Selectout("SELECT * FROM teacher", "teacher");
         }
-
+        //查询选课判断
         private bool choseclass(string cl,string []cla)
         {
             string weak = cl.Substring(0,1);
@@ -42,6 +43,72 @@ namespace StudentClassControl
             //没找到这个课程
             return false;
         }
+        //判断是否选课冲突
+        private bool checkclass(string[] cla_now,int _op,int _ed)
+        {
+            //获取学生选课表
+            string sql = "SELECT * FROM chose_class WHERE stu_id='" + FormControl.person.id + "';";
+            DataSet stu_cla = mc.Selectout(sql, "chose_class");
+            //保存已选课程
+            //List<string> class_old = new List<string>();
+            string sqlgettime = "SELECT * FROM choseclass WHERE class_id  IN("; //10000','12225','45678');";
+            for (int i = 0; i < stu_cla.Tables[0].Rows.Count; i++)
+            {
+                //class_old.Add(stu_cla.Tables[0].Rows[i][1].ToString());
+                sqlgettime = sqlgettime + "'" + stu_cla.Tables[0].Rows[i][1].ToString() + "'";
+                if (i + 1 < stu_cla.Tables[0].Rows.Count)
+                {
+                    sqlgettime += ",";
+                }
+                else
+                {
+                    sqlgettime += ");";
+                }
+            }
+            //已选课程时间获取
+            DataSet class_timeold = mc.Selectout(sqlgettime, "choseclass");
+            string classweaklave = "";
+            int key = 0;
+            if (class_timeold == null)
+            {
+                return true;
+            }
+            for (int k = 0; k < class_timeold.Tables[0].Rows.Count; k++)
+            {
+                //classweaklave += "*" + class_timeold.Tables[0].Rows[k][9].ToString();
+                int star_ed = int.Parse(class_timeold.Tables[0].Rows[k][6].ToString());
+                //周数是否冲突 _op 当前选择课程的开始时间  star_ed 一条记录的结束时间
+                if (star_ed < _op)
+                {
+                    //选择课程开始时间大于已选课程结束时间
+                    key++;
+                    if (key  == class_timeold.Tables[0].Rows.Count)
+                    {
+                        //与所有选课的周都不冲突
+                        return true;
+                    }
+                }
+                else
+                {
+                    classweaklave += "*" + class_timeold.Tables[0].Rows[k][9].ToString();
+                }
+            }
+            string[] checktime = classweaklave.Split('*');
+
+            for (int m = 0; m < cla_now.Length; m++)
+            {
+                for (int n = 0; n < checktime.Length; n++)
+                {
+                    if (cla_now[m] == checktime[n]&& cla_now[m]!="")
+                    {
+                        //存在相同时间
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             dataGridView1.Columns.Clear();
@@ -145,6 +212,10 @@ namespace StudentClassControl
                     col7.Name = "classtime";
                     col7.HeaderText = "上课时间";
 
+                    DataGridViewTextBoxColumn col8 = new DataGridViewTextBoxColumn();
+                    col8.Name = "classanpai";
+                    col8.HeaderText = "课程安排";
+
                     //添加数据 列
                     dataGridView1.Columns.Add(col3);
                     dataGridView1.Columns.Add(col1);
@@ -153,6 +224,10 @@ namespace StudentClassControl
                     dataGridView1.Columns.Add(col5);
                     dataGridView1.Columns.Add(col6);
                     dataGridView1.Columns.Add(col7);
+                    dataGridView1.Columns.Add(col8);
+
+                    //课程安排不显示
+                    dataGridView1.Columns[7].Visible = false;
 
                     //DataGridViewRow row = new DataGridViewRow();
                     //row.CreateCells(dataGridView1);
@@ -165,7 +240,7 @@ namespace StudentClassControl
                         DataRow[] tea = teatable.Tables[0].Select("id='"+ dt.Rows[i][3]+"'");
                         //MessageBox.Show(tea[0].ItemArray[1].ToString());
                         dataGridView1.Rows.Add("选课", dt.Rows[i][1], dt.Rows[i][0], tea[0].ItemArray[1],
-                            dt.Rows[i][2], dt.Rows[i][4], dt.Rows[i][5] + "-" + dt.Rows[i][6] + "周");
+                            dt.Rows[i][2], dt.Rows[i][4], dt.Rows[i][5] + "-" + dt.Rows[i][6] + " 周",dt.Rows[i][9]);
                     }
                 }
                 else
@@ -181,20 +256,41 @@ namespace StudentClassControl
             {
                 //占击按钮操作
                 int ro = dataGridView1.CurrentRow.Cells[0].RowIndex;
+                //当前课程周数
+                string clasweak = dataGridView1.Rows[ro].Cells[2].Value.ToString();
                 //MessageBox.Show("*"+ dataGridView1.Rows[ro].Cells[2].Value.ToString());
-                string classid = dataGridView1.Rows[ro].Cells[2].Value.ToString();
-                string tim_year = DateTime.Now.Year.ToString();
-                string tim_month = DateTime.Now.Month > 5 ? "2" : "1";
-                string sqlin = "INSERT INTO chose_class VALUES('"+FormControl.person.id+"',"+classid+",NULL,'"+tim_year+"-"+tim_month+"',NULL)";
-                int key = mc.Myinsert(sqlin);
-                if (key >= 1)
+                //当前课程时间
+                string classtim = dataGridView1.Rows[ro].Cells[7].Value.ToString();
+                string[] clat = classtim.Split('*');
+                string clop = dataGridView1.Rows[ro].Cells[6].Value.ToString().Substring(0, 1);
+                int op = int.Parse(clop);
+                string cled = dataGridView1.Rows[ro].Cells[6].Value.ToString().Substring(2,2);
+                int ed = int.Parse(cled);
+
+
+                bool te= checkclass(clat, op, ed);
+                if (te)
                 {
-                    MessageBox.Show("选课成功");
+                    //不冲突
+                    string classid = dataGridView1.Rows[ro].Cells[2].Value.ToString();
+                    string tim_year = DateTime.Now.Year.ToString();
+                    string tim_month = DateTime.Now.Month > 5 ? "2" : "1";
+                    string sqlin = "INSERT INTO chose_class VALUES('" + FormControl.person.id + "'," + classid + ",NULL,'" + tim_year + "-" + tim_month + "',NULL)";
+                    int key = mc.Myinsert(sqlin);
+                    if (key >= 1)
+                    {
+                        MessageBox.Show("选课成功");
+                    }
+                    else
+                    {
+
+                    }
                 }
                 else
                 {
-
+                    MessageBox.Show("课程时间冲突");
                 }
+              
             }
         }
     }

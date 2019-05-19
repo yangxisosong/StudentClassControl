@@ -14,6 +14,12 @@ namespace StudentClassControl
 {
     public partial class Form1 : Form
     {
+        //新建一个x学生选课的窗体
+        student_1 st1 = new student_1();
+        student_2 st2 = new student_2();
+        student_3 st3 = new student_3();
+
+
         Service1Client mc = new Service1Client();
         public Form1()
         {
@@ -24,6 +30,15 @@ namespace StudentClassControl
             //this.Controls.Add(printButton);
             namenum.Text = FormControl.person.id;
             name.Text = FormControl.person.name;
+            ////将窗体的TopLevel属性设为false，即窗体显示不是顶级窗口
+            st1.TopLevel = false;
+            st2.TopLevel = false;
+            st3.TopLevel = false;
+
+            panel2.Controls.Clear();
+            ////向panel控件中添加窗体
+            panel2.Controls.Add(st1);
+            st1.Show();
         }
         //void printButton_Click(object sender, EventArgs e)
         //{
@@ -151,10 +166,8 @@ namespace StudentClassControl
 
         private void button3_Click(object sender, EventArgs e)
         {
-            ////新建一个修改密码的窗体
-            student_1 st1 = new student_1();
-            ////将窗体的TopLevel属性设为false，即窗体显示不是顶级窗口
-            st1.TopLevel = false;
+            
+
             ////清空panel控件的内容
             this.panel2.Controls.Clear();
             ////向panel控件中添加窗体
@@ -165,8 +178,7 @@ namespace StudentClassControl
 
         private void button4_Click(object sender, EventArgs e)
         {
-            student_2 st2 = new student_2();
-            st2.TopLevel = false;
+           
             this.panel2.Controls.Clear();
             this.panel2.Controls.Add(st2);
             st2.Show();
@@ -174,8 +186,7 @@ namespace StudentClassControl
 
         private void button5_Click(object sender, EventArgs e)
         {
-            student_3 st3 = new student_3();
-            st3.TopLevel = false;
+
             this.panel2.Controls.Clear();
             this.panel2.Controls.Add(st3);
             st3.Show();
