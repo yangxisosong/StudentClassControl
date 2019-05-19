@@ -13,6 +13,7 @@ namespace StudentClassControl
         public string passward;
         public string lever;
         public string name;
+        public string year;
     }
     class FormControl
     {

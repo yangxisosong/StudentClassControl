@@ -191,5 +191,9 @@ namespace StudentClassControl
             this.panel2.Controls.Add(st3);
             st3.Show();
         }
+        private void formchange(object sender, EventArgs e)
+        {
+            MessageBox.Show(panel1.Size.ToString());
+        }
     }
 }
