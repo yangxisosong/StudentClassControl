@@ -1,4 +1,6 @@
-﻿1. 第一行第一列的值
+﻿
+设置无边框窗体 formborderstyle =none
+1. 第一行第一列的值
 
       DataSet ds=new DataSet();
       ds.Tables[0].Rows[0][0].ToString();

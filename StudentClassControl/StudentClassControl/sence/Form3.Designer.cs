@@ -102,7 +102,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Location = new System.Drawing.Point(297, 18);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(970, 722);
+            this.panel2.Size = new System.Drawing.Size(970, 700);
             this.panel2.TabIndex = 1;
             // 
             // groupBox2
@@ -124,8 +124,9 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(117, 46);
             this.button3.TabIndex = 5;
-            this.button3.Text = "button3";
+            this.button3.Text = "添加成绩";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -133,8 +134,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(117, 46);
             this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
+            this.button2.Text = "成绩查看";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -142,7 +144,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(117, 46);
             this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
+            this.button1.Text = "我的课程";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

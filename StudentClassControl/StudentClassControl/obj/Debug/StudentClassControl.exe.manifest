@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StudentClassControl.exe" size="2069008">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StudentClassControl.exe" size="2077712">
       <assemblyIdentity name="StudentClassControl" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>O4dERLfm5I9TmOfuBREwfE/jH/wNQoJtFnauIMYTiGU=</dsig:DigestValue>
+        <dsig:DigestValue>3ziHSNEq4DxU4HBcVIuAAzZQIn+s7JgJ/lwBHisqC7Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -73,17 +73,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wMGP09ysFMW64bptTl1jA3G+iXeNXYuGL4Fq6tCR4E8=</dsig:DigestValue>
+        <dsig:DigestValue>xwmG1mlUjsVSzcOwVBX5qEwwuubQuTfFv/2DBjhMh1I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Dataset.txt" size="987">
+  <file name="Dataset.txt" size="1032">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Xf/2dyUUV04TuwZnwiXXnwJu++wo0VihpwP8BSz9kAc=</dsig:DigestValue>
+      <dsig:DigestValue>8eQkuNbmZDXAvE0aKZbTkvKjdMdhQHAvPFotpmVGul8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="drawmap.txt" size="4370">
