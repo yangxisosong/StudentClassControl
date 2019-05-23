@@ -84,12 +84,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clssfile\Excelcon.cs" />
     <Compile Include="Connected Services\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Clssfile\Excelcon.cs" />
     <Compile Include="sence\Formclass.cs">
       <SubType>Form</SubType>
     </Compile>

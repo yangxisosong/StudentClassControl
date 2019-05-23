@@ -51,7 +51,7 @@ namespace StudentClassControl
         {
             if (comboBox1.Text != "")
             {
-
+                listBox1.Items.Clear();
                 string sql = "SELECT * FROM choseclass WHERE teacher='"+FormControl.person.id+"'";
                 tea_class = mc.Selectout(sql, "choseclass");
                 for (int i = 0; i < tea_class.Tables[0].Rows.Count; i++)

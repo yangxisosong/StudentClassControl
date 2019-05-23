@@ -17,7 +17,7 @@ namespace WcfServiceyxs1
         {
         }
         //数据库连接符
-        MySqlConnection conna = new MySqlConnection("server=localhost;port=3306; database=yxs;username=root;password=123456;");
+        MySqlConnection conna = new MySqlConnection("server=139.199.86.90;port=3306; database=yxs;username=root;password=123456;");
         //测试代码
         public DataTable GetSalesVolume()
         {

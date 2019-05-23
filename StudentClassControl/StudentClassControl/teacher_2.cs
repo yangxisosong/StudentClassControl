@@ -23,11 +23,15 @@ namespace StudentClassControl
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int index = listBox1.SelectedIndex;
+            int index = listBox2.SelectedIndex;
             string stulif = textBox1.Text;
             string sql = "UPDATE chose_class SET stu_life="+stulif+" WHERE class_id='"+
                 stu.Tables[0].Rows[index][8]+"' And stu_id="+ stu.Tables[0].Rows[index][0];
             int key = mc.Myinsert(sql);
+            if (key >= 1)
+            {
+                MessageBox.Show("添加成功");
+            }
         }
 
         private void teacher_2_Load(object sender, EventArgs e)
