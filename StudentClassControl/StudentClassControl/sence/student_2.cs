@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,19 +31,18 @@ namespace StudentClassControl
             dt.Columns.Add("周五", typeof(string));
             dt.Columns.Add("周六", typeof(string));
             dt.Columns.Add("周日", typeof(string));
-
             for (int i = 0; i < 5; i++)  //用循环添加4个行集~
             {
                 DataRow dr = dt.NewRow();
                 dt.Rows.Add(dr);
             }
 
-            dt.Rows[0][0] = "第1节";  //向第一行里的第一个格中添加一个“第1节”
-            dt.Rows[1][0] = "第2节";  //向第二行里的第一个格中添加一个“第 2 节”
-            dt.Rows[2][0] = "第3节";  //向第三行里的第一个格中添加一个“第3节”
-            dt.Rows[3][0] = "第4节";  //向第四行里的第一个格中添加一个“第4节”
-            dt.Rows[4][0] = "第5节";  //向第四行里的第一个格中添加一个“第5节”
-
+            dt.Rows[0][0] = "第1节"; 
+            dt.Rows[1][0] = "第2节";  
+            dt.Rows[2][0] = "第3节";  
+            dt.Rows[3][0] = "第4节";  
+            dt.Rows[4][0] = "第5节";  
+            
             //设置不自动增加行
             dataGridView1.AllowUserToAddRows = false;
             //取消左边 选择列
@@ -85,15 +85,28 @@ namespace StudentClassControl
                     }
                 }
             }
-
-            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader; ///根据数据内容自动调整列宽 
-            //dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders; ///根据数据内容自动调整行高
-
             //设置自动换行  
             dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             //设置自动调整高度  
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            //dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            //设置行宽铺满窗口
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.Font = new Font("宋体", 9);
             dataGridView1.DataSource = dt;
+            //设置行高
+            for (int i = 0; i < 5; i++)
+            {
+                dataGridView1.Rows[i].Height = 66;
+            }
+            //取消列排序
+            for (int j = 0; j < dataGridView1.ColumnCount; j++)
+            {
+                dataGridView1.Columns[j].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+            //设置表头高度
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridView1.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersHeight = 55;
         }
 
         private void student_2_Load(object sender, EventArgs e)
@@ -111,6 +124,26 @@ namespace StudentClassControl
             {
                 MessageBox.Show("请选择学期");
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int height, width;
+
+            height = dataGridView1.ColumnHeadersHeight + dataGridView1.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + 1;
+            width = dataGridView1.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) + 2;
+            Bitmap image = new Bitmap(width, height);//初始化一个相同大小的窗口
+            dataGridView1.DrawToBitmap(image, new Rectangle(0, 0, width, height));
+            SaveFileDialog sfd = new SaveFileDialog();
+            string saveFileName = "";
+            sfd.Filter = "图片文件|*.jpg";
+            sfd.FileName = "课程表";
+            sfd.ShowDialog();
+            saveFileName = sfd.FileName;
+            if (saveFileName.IndexOf(":") < 0) return; //被点了取消
+            string localFilePath = sfd.FileName.ToString(); //获得文件路径 
+            string fileNameExt = localFilePath.Substring(localFilePath.LastIndexOf("\\") + 1); //获取文件名，不带路径
+            image.Save(localFilePath, ImageFormat.Jpeg);
         }
     }
 }

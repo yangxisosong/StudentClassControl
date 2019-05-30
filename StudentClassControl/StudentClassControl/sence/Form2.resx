@@ -129,7 +129,7 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="maskedTextBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;maskedTextBox1.Name" xml:space="preserve">
     <value>maskedTextBox1</value>
@@ -223,7 +223,7 @@
     <value>236, 34</value>
   </data>
   <data name="maskedTextBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;maskedTextBox2.Name" xml:space="preserve">
     <value>maskedTextBox2</value>
@@ -355,7 +355,7 @@
     <value>199, 30</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>0</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>课程管理系统</value>

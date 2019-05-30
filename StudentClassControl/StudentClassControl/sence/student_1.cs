@@ -228,7 +228,8 @@ namespace StudentClassControl
 
                     //课程安排不显示
                     dataGridView1.Columns[7].Visible = false;
-
+                    //行宽
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     //DataGridViewRow row = new DataGridViewRow();
                     //row.CreateCells(dataGridView1);
                     //设置单元格的值

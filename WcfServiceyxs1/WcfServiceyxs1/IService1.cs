@@ -24,24 +24,25 @@ namespace WcfServiceyxs1
         [OperationContract]
         string Mycase();
 
+        //登录密码判断
         [OperationContract]
         int Loadding(string id, string passward);
-
+        //修改密码
         [OperationContract]
         int Changepassward(string pass, string id);
-
+        //查询需要的表格
         [OperationContract]
         DataSet Selectin(string id, string table);
-
+        //查询专业
         [OperationContract]
         DataSet Selectschool(string table);
-
+        //插入数据
         [OperationContract]
         int Insert(string table, string id, string name, string sex, string stuclass, string discipline, string college, string intime);
-
+        //插入多条数据
         [OperationContract]
         int Myinsert(string ins);
-
+        //自定义查询表格
         [OperationContract]
         DataSet Selectout(string sqlout, string table);
     }

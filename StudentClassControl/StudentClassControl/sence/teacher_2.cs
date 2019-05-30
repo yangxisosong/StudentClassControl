@@ -53,13 +53,16 @@ namespace StudentClassControl
             //当前行号 
             int index = listBox1.SelectedIndex;
             //MessageBox.Show(tea_class.Tables[0].Rows[index][0].ToString());
-            string sql_stu = "select * from student inner join chose_class on student.id=chose_class.stu_id AND chose_class.class_id = '"+
-                tea_class.Tables[0].Rows[index][0].ToString() + "'";
-            stu = mc.Selectout(sql_stu, "student");
-            int ts = stu.Tables[0].Rows.Count;
-            for (int k = 0; k < ts; k++)
+            if(index!=-1)
             {
-                listBox2.Items.Add(stu.Tables[0].Rows[k][1]);
+                string sql_stu = "select * from student inner join chose_class on student.id=chose_class.stu_id AND chose_class.class_id = '" +
+             tea_class.Tables[0].Rows[index][0].ToString() + "'";
+                stu = mc.Selectout(sql_stu, "student");
+                int ts = stu.Tables[0].Rows.Count;
+                for (int k = 0; k < ts; k++)
+                {
+                    listBox2.Items.Add(stu.Tables[0].Rows[k][1]);
+                }
             }
         }
 

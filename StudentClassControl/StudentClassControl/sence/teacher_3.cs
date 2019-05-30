@@ -15,6 +15,7 @@ namespace StudentClassControl
     public partial class teacher_3 : Form
     {
         Service1Client mc = new Service1Client();
+        DataSet teaclass;
         public teacher_3()
         {
             InitializeComponent();
@@ -22,31 +23,22 @@ namespace StudentClassControl
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            //DataTable dt = new DataTable("stu_life");
-            //dt.Columns.Add("姓名", typeof(string));
-            //dt.Columns.Add("成绩", typeof(string));
-
-
-            //for (int i = 0; i < 5; i++)  //用循环添加4个行集~
-            //{
-            //    DataRow dr = dt.NewRow();
-            //    dt.Rows.Add(dr);
-            //}
-
-            //dt.Rows[0][0] = "张三1";
-            //dt.Rows[1][0] = "张三2";
-            //dt.Rows[2][0] = "张三3";
-            //dt.Rows[3][0] = "张三4";
-            //dt.Rows[4][0] = "张三5";
-            //dt.Rows[0][1] = 11;
-            //dt.Rows[1][1] = 21;
-            //dt.Rows[2][1] = 31;
-            //dt.Rows[3][1] = 41;
-            //dt.Rows[4][1] = 51;
-            string tea_class = comboBox1.Text;
-            string sql = "select * from student inner join chose_class on student.id=chose_class.stu_id AND chose_class.class_id = " + tea_class;
+            chart1.Series.Clear();
+            string tea_class = teaclass.Tables[0].Rows[comboBox1.SelectedIndex][0].ToString();
+            string tea_year = comboBox2.Text;
+            if (tea_year == "" || tea_class == "")
+            {
+                MessageBox.Show("添加查询信息");
+                return;
+            }
+            string sql = "select * from student inner join chose_class on student.id=chose_class.stu_id AND chose_class.class_id = " +
+                tea_class+ " AND chose_class.class_time='"+tea_year+"'";
             DataSet ds= mc.Selectout(sql,"chose_class");
+            if (ds == null||ds.Tables[0].Rows.Count == 0)
+            {
+                MessageBox.Show("无成绩信息");
+                return;
+            }
             DataTable dt = new DataTable("stu_life");
             dt.Columns.Add("姓名", typeof(string));
             dt.Columns.Add("成绩", typeof(int));
@@ -61,14 +53,13 @@ namespace StudentClassControl
                 dt.Rows[j][0] = ds.Tables[0].Rows[j][1];
                 dt.Rows[j][1] = ds.Tables[0].Rows[j][9];
             }
-            object ts = dt.Compute("Avg(成绩)", "true");
+
             //取均值
             label4.Text = dt.Compute("Avg(成绩)", "true").ToString();
             //取最大值
             label5.Text = dt.Compute("Max(成绩)", "true").ToString();
             //取最小值
             label6.Text = dt.Compute("Min(成绩)", "true").ToString();
-
 
             Series dataTable3Series = new Series("成绩");
             dataTable3Series.Points.DataBind(dt.AsEnumerable(), "姓名", "成绩", "");
@@ -79,7 +70,15 @@ namespace StudentClassControl
 
         private void teacher_3_Load(object sender, EventArgs e)
         {
-            chart1.Series.Clear(); 
+            chart1.Series.Clear();
+            string sql = "SELECT * FROM choseclass WHERE teacher='" + FormControl.person.id + "'";
+            teaclass = mc.Selectout(sql, "choseclass");
+
+
+            for (int i = 0; i < teaclass.Tables[0].Rows.Count; i++)
+            {
+                comboBox1.Items.Add(teaclass.Tables[0].Rows[i][1].ToString());
+            }
         }
     }
 }

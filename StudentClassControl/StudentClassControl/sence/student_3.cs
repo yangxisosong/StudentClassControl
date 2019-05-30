@@ -70,7 +70,10 @@ namespace StudentClassControl
                 dataGridView1.AllowUserToAddRows = false;
                 //取消左边 选择列
                 dataGridView1.RowHeadersVisible = false;
+                //行宽
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.DataSource = dt;
+
             }
             else
             {

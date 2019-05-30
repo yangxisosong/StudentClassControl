@@ -103,7 +103,6 @@
       <DependentUpon>admin_1.cs</DependentUpon>
     </Compile>
     <Compile Include="Clssfile\Class1.cs" />
-    <Compile Include="Clssfile\Class2.cs" />
     <Compile Include="sence\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,22 +155,22 @@
     <Compile Include="sence\student_3.Designer.cs">
       <DependentUpon>student_3.cs</DependentUpon>
     </Compile>
-    <Compile Include="teacher_1.cs">
+    <Compile Include="sence\teacher_1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="teacher_1.Designer.cs">
+    <Compile Include="sence\teacher_1.Designer.cs">
       <DependentUpon>teacher_1.cs</DependentUpon>
     </Compile>
-    <Compile Include="teacher_2.cs">
+    <Compile Include="sence\teacher_2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="teacher_2.Designer.cs">
+    <Compile Include="sence\teacher_2.Designer.cs">
       <DependentUpon>teacher_2.cs</DependentUpon>
     </Compile>
-    <Compile Include="teacher_3.cs">
+    <Compile Include="sence\teacher_3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="teacher_3.Designer.cs">
+    <Compile Include="sence\teacher_3.Designer.cs">
       <DependentUpon>teacher_3.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="sence\Formclass.resx">
@@ -217,13 +216,13 @@
     <EmbeddedResource Include="sence\student_3.resx">
       <DependentUpon>student_3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="teacher_1.resx">
+    <EmbeddedResource Include="sence\teacher_1.resx">
       <DependentUpon>teacher_1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="teacher_2.resx">
+    <EmbeddedResource Include="sence\teacher_2.resx">
       <DependentUpon>teacher_2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="teacher_3.resx">
+    <EmbeddedResource Include="sence\teacher_3.resx">
       <DependentUpon>teacher_3.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Connected Services\ServiceReference1\Service1.wsdl" />

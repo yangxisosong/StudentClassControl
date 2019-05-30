@@ -20,16 +20,6 @@ namespace StudentClassControl
         {
             InitializeComponent();
         }
-
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
         //登录
         private void button1_Click(object sender, EventArgs e)
         {
@@ -108,6 +98,11 @@ namespace StudentClassControl
                 FormControl.person.id = username;
                 FormControl.Changeform(4, this);
             }
+        }
+
+        private void formload_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

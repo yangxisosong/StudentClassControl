@@ -42,11 +42,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(661, 207);
+            this.label1.Location = new System.Drawing.Point(680, 80);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 15);
+            this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 0;
-            this.label1.Text = "学期";
+            this.label1.Text = "学期：";
             // 
             // listBox1
             // 
@@ -65,9 +65,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.listBox1);
-            this.groupBox1.Location = new System.Drawing.Point(34, 32);
+            this.groupBox1.Location = new System.Drawing.Point(25, 40);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(260, 656);
+            this.groupBox1.Size = new System.Drawing.Size(260, 650);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "我的课程";
@@ -75,9 +75,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.listBox2);
-            this.groupBox2.Location = new System.Drawing.Point(344, 32);
+            this.groupBox2.Location = new System.Drawing.Point(340, 40);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(260, 656);
+            this.groupBox2.Size = new System.Drawing.Size(260, 650);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "课程信息";
@@ -97,9 +97,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(684, 459);
+            this.button1.Location = new System.Drawing.Point(683, 203);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 62);
+            this.button1.Size = new System.Drawing.Size(100, 40);
             this.button1.TabIndex = 5;
             this.button1.Text = "查询课程";
             this.button1.UseVisualStyleBackColor = true;
@@ -112,7 +112,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "2019-1",
             "2019-2"});
-            this.comboBox1.Location = new System.Drawing.Point(718, 199);
+            this.comboBox1.Location = new System.Drawing.Point(747, 72);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(154, 23);
             this.comboBox1.TabIndex = 6;

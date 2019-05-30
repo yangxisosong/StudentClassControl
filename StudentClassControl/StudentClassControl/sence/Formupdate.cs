@@ -41,7 +41,7 @@ namespace StudentClassControl
             }
             else
             {
-                //判断用户名密码是否正确 power>0 ok
+                //判断用户名密码是否正确 power>0 正确
                 int power = mc.Loadding(username, password);
                 if (power > 0)
                 {
@@ -58,10 +58,6 @@ namespace StudentClassControl
                         {
                             MessageBox.Show("修改失败");
                         }
-                    }
-                    else
-                    {
-
                     }
                 }
                 else
