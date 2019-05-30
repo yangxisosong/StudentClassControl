@@ -454,7 +454,7 @@ namespace StudentClassControl
                 int key = mc.Myinsert(sqlop + sqled);
                 if (key >= 1)
                 {
-                    MessageBox.Show("成功更新" + (key/2) + "条信息");
+                    MessageBox.Show("成功修改信息");
                 }
                 else
                 {
@@ -493,11 +493,12 @@ namespace StudentClassControl
                        ", '" + dataGridView6[1, i].Value.ToString() +
                        "',"+ dataGridView6[2, i].Value.ToString() +
                        ", '" + dataGridView6[3, i].Value.ToString() +
-                       "', " + dataGridView6[4, i].Value.ToString() +
-                       ", " + dataGridView6[5, i].Value.ToString() +
+                       "', '" + dataGridView6[4, i].Value.ToString() +
+                       "', " + dataGridView6[5, i].Value.ToString() +
                        ", '" + dataGridView6[6, i].Value.ToString() +
-                       "', " + dataGridView6[7, i].Value.ToString() +
-                       ", '" + dataGridView6[8, i].Value.ToString() + "')";
+                       "', '" + dataGridView6[7, i].Value.ToString() +
+                       "', '" + dataGridView6[8, i].Value.ToString() +
+                       "','"+dataGridView6[9,i].Value.ToString()+"')";
                     if (i + 1 < len)
                     {
                         sqled = sqled + ",";
@@ -512,7 +513,7 @@ namespace StudentClassControl
                 //string te = sqlop + sqled;
                 if (key >= 1)
                 {
-                    MessageBox.Show("成功录入" + (key/2) + "条信息");
+                    MessageBox.Show("成功修改信息");
                 }
                 else
                 {
@@ -656,7 +657,7 @@ namespace StudentClassControl
                 string te = sqlop + sqled;
                 if (key >= 1)
                 {
-                    MessageBox.Show("成功录入" + (key/2) + "条信息");
+                    MessageBox.Show("成功修改信息");
                 }
                 else
                 {
