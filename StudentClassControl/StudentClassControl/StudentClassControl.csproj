@@ -7,7 +7,7 @@
     <ProjectGuid>{E8F166A7-1072-4060-9DC1-4104E198FF12}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>StudentClassControl</RootNamespace>
-    <AssemblyName>StudentClassControl</AssemblyName>
+    <AssemblyName>课程管理系统</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -58,6 +58,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon %283%29.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
@@ -267,6 +270,7 @@
     </None>
     <Content Include="Dataset.txt" />
     <Content Include="drawmap.txt" />
+    <Content Include="favicon %283%29.ico" />
     <Content Include="openfile.txt" />
     <Content Include="outputExcle.txt" />
     <None Include="Resources\gamersky_04origin_07_201891162468D.jpg" />

@@ -19,6 +19,7 @@ namespace StudentClassControl
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //记录课程时间字符串
             FormControl.weaktime = null;
             foreach (Control c in groupBox1.Controls)
             {
@@ -27,22 +28,11 @@ namespace StudentClassControl
                     CheckBox ck = c as CheckBox;
                     if (ck.Checked == true)
                     {
-                        //int num = int.Parse(ck.Tag.ToString());
-                        //int key = num / 10;
-                        //int value = num - key * key;
-                        //FormControl.keyValues.Add(key.ToString(), value.ToString());
+                        //添加课程时间信息
                         FormControl.weaktime = FormControl.weaktime + ck.Tag.ToString()+"*";
                     }
                 }
             }
-            //string ts = "12*56*89";
-            //string[] arry = ts.Split('*');
-            //foreach (string i in arry) {
-            //    MessageBox.Show(i+arry.Length);
-            //}
-            //MessageBox.Show(FormControl.weaktime);
-
-            
             this.Close();
         }
     }

@@ -320,7 +320,7 @@ namespace StudentClassControl
             dataGridView1.Columns.Clear();
             //获取学生选课表
             string tim_year = DateTime.Now.Year.ToString();
-            string tim_month = DateTime.Now.Month > 5 ? "1" : "1";
+            string tim_month = DateTime.Now.Month > 5 ? "2" : "1";
             string sql = "SELECT * FROM chose_class WHERE stu_id='" + FormControl.person.id + "' AND class_time= '" +tim_year+"-"+ tim_month + "' ;";
             DataSet stu_cla = mc.Selectout(sql, "chose_class");
             //保存已选课程

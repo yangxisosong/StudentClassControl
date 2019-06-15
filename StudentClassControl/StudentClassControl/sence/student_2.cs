@@ -129,7 +129,6 @@ namespace StudentClassControl
         private void button2_Click(object sender, EventArgs e)
         {
             int height, width;
-
             height = dataGridView1.ColumnHeadersHeight + dataGridView1.Rows.GetRowsHeight(DataGridViewElementStates.Visible) + 1;
             width = dataGridView1.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) + 2;
             Bitmap image = new Bitmap(width, height);//初始化一个相同大小的窗口

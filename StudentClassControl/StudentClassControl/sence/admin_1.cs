@@ -9,11 +9,12 @@ namespace StudentClassControl
 {
     public partial class admin_1 : Form
     {
-        //定义字典用于下拉列表选择
-        Dictionary<string, string> Address = new Dictionary<string, string>();
         MysqlControl bdmc = new MysqlControl();
         Service1Client mc = new Service1Client();
         Excelcon ex = new Excelcon();
+
+        //定义字典用于下拉列表选择
+        Dictionary<string, string> Address = new Dictionary<string, string>();
         public admin_1()
         {
             InitializeComponent();
@@ -33,17 +34,13 @@ namespace StudentClassControl
                     comboBox4.Items.Add(province);
                     comboBox13.Items.Add(province);
                 }             
-                
             }
-            for (int i = 1990; i < DateTime.Now.Year; i++)
+            for (int i = 2010; i < DateTime.Now.Year; i++)
             {
                 comboBox3.Items.Add(i);
             }
         }
-
-       
-
-
+        //当选择完学院后 添加专业的下拉列表
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBox2.Items.Clear();
@@ -58,6 +55,7 @@ namespace StudentClassControl
                 }
             }
         }
+
         //添加一个学生信息
         private void button1_Click(object sender, EventArgs e)
         {
@@ -355,7 +353,6 @@ namespace StudentClassControl
         //查询学生表
         private void button14_Click(object sender, EventArgs e)
         {
-
             string stuid = textBox8.Text;
             string stuclass = textBox11.Text;
             string stuhome = textBox12.Text;

@@ -11,11 +11,8 @@ namespace StudentClassControl
     class Class1
     {
         public DataSet GetData()
-
         {
-
             //打开文件
-
             OpenFileDialog file = new OpenFileDialog
             {
                 Filter = "Excel(*.xls)|*.xls|Excel(*.xlsx)|*.xlsx",
@@ -26,13 +23,10 @@ namespace StudentClassControl
             };
             //显示对话框==对话框取消
             if (file.ShowDialog() == DialogResult.Cancel)
-
                 return null;
-
             //判断文件后缀
-
             var path = file.FileName;
-
+  
             string fileSuffix = System.IO.Path.GetExtension(path);
 
             if (string.IsNullOrEmpty(fileSuffix))
